@@ -1,21 +1,26 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 const Octopus = () => {
     // 可调节参数
     const [config, setConfig] = useState({
+        fillColor: "#000", //填充颜色
+        strokeColor: "#fff", //描边颜色
+        backgroundColor: "#000", //背景颜色
+        borderWidth: 5, // 描边大小
         ballRadius: 20, // 中心球大小
         spikeCount: 7, // 触手数量
         spikeLength: 20, // 触手长度
         baseWidth: 18, // 根部宽度
         tipWidth: 14, // 顶部宽度
+        blurAmount: 0, //模糊大小
         stiffness: 0.1, // 触手弹性
         damping: 0.85, // 触手阻尼
         inertiaFactor: 0.2, // 惯性基础系数
         animationSpeed: 0.03, // 动画速度
         randomness: 0.15, // 随机性
-        cornerRadius: 15, // 圆角半径
-        rotateSpeed: 0.05,
+        rotateSpeed: 0.05, // 旋转速度
     });
 
     const svgRef = useRef(null);
@@ -111,7 +116,6 @@ const Octopus = () => {
             const p2 = points[(i + 1) % points.length];
             const p3 = points[(i + 2) % points.length];
 
-            // Catmull-Rom to Cubic Bezier conversion
             const cp1x = p1.x + (p2.x - p0.x) / 6;
             const cp1y = p1.y + (p2.y - p0.y) / 6;
             const cp2x = p2.x - (p3.x - p1.x) / 6;
@@ -300,6 +304,12 @@ const Octopus = () => {
             [key]: numValue,
         }));
     };
+    const handleColorChange = (key, value) => {
+        setConfig((prev) => ({
+            ...prev,
+            [key]: value,
+        }));
+    };
 
     // 随机化触手分布
     const randomizeSpikes = () => {
@@ -333,6 +343,49 @@ const Octopus = () => {
                             padding: "10px",
                             borderRadius: "8px",
                         }}>
+                        <div className="control-group">
+                            <label>
+                                填充颜色:
+                                <input
+                                    type="color"
+                                    value={config.fillColor}
+                                    onChange={(e) =>
+                                        handleColorChange(
+                                            "fillColor",
+                                            e.target.value
+                                        )
+                                    }
+                                />
+                            </label>
+                            <label style={{ marginLeft: "1rem" }}>
+                                描边颜色:
+                                <input
+                                    type="color"
+                                    value={config.endColor}
+                                    onChange={(e) =>
+                                        handleColorChange(
+                                            "strokeColor",
+                                            e.target.value
+                                        )
+                                    }
+                                />
+                            </label>
+                        </div>
+                        <div className="control-group">
+                            <label>
+                                背景颜色:
+                                <input
+                                    type="color"
+                                    value={config.backgroundColor}
+                                    onChange={(e) =>
+                                        handleColorChange(
+                                            "backgroundColor",
+                                            e.target.value
+                                        )
+                                    }
+                                />
+                            </label>
+                        </div>
                         <div className="control-group">
                             <label>中心球大小: {config.ballRadius}</label>
                             <input
@@ -420,6 +473,38 @@ const Octopus = () => {
                         </div>
 
                         <div className="control-group">
+                            <label>模糊大小: {config.blurAmount}</label>
+                            <input
+                                type="range"
+                                min="0"
+                                max="10"
+                                step="1"
+                                value={config.blurAmount}
+                                onChange={(e) =>
+                                    handleConfigChange(
+                                        "blurAmount",
+                                        e.target.value
+                                    )
+                                }
+                            />
+                        </div>
+                        <div className="control-group">
+                            <label>描边大小: {config.borderWidth}</label>
+                            <input
+                                type="range"
+                                min="0"
+                                max="10"
+                                step="0.2"
+                                value={config.borderWidth}
+                                onChange={(e) =>
+                                    handleConfigChange(
+                                        "borderWidth",
+                                        e.target.value
+                                    )
+                                }
+                            />
+                        </div>
+                        <div className="control-group">
                             <label>弹性: {config.stiffness.toFixed(2)}</label>
                             <input
                                 type="range"
@@ -492,22 +577,6 @@ const Octopus = () => {
                         </div>
 
                         <div className="control-group">
-                            <label>圆角半径: {config.cornerRadius}</label>
-                            <input
-                                type="range"
-                                min="0"
-                                max="50"
-                                step="1"
-                                value={config.cornerRadius}
-                                onChange={(e) =>
-                                    handleConfigChange(
-                                        "cornerRadius",
-                                        e.target.value
-                                    )
-                                }
-                            />
-                        </div>
-                        <div className="control-group">
                             <label>旋转速度: {config.rotateSpeed}</label>
                             <input
                                 type="range"
@@ -559,7 +628,7 @@ const Octopus = () => {
                 height="100%"
                 viewBox={`0 0 ${svgSize.width} ${svgSize.height}`}
                 style={{
-                    background: "radial-gradient(circle, #1a1a2e, #16213e)",
+                    background: config.backgroundColor,
                 }}>
                 <defs>
                     <radialGradient
@@ -591,21 +660,20 @@ const Octopus = () => {
                         height="200%">
                         <feGaussianBlur
                             in="SourceGraphic"
-                            stdDeviation="5"
+                            stdDeviation={config.blurAmount}
                             result="blur"
                         />
                         <feBlend in="SourceGraphic" in2="blur" mode="lighten" />
                     </filter>
                 </defs>
-
                 {/* 触手路径 */}
                 <path
                     ref={pathRef}
                     d=""
-                    fill="url(#spikeGradient)"
-                    stroke="#00f2fe"
-                    strokeWidth="1.5"
-                    opacity="0.85"
+                    fill={config.fillColor}
+                    stroke={config.strokeColor}
+                    strokeWidth={config.borderWidth}
+                    // opacity="0.85"
                     filter="url(#glow)"
                 />
             </svg>

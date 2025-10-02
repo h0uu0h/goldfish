@@ -1,20 +1,26 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 const Octopus = () => {
     // 可调节参数
     const [config, setConfig] = useState({
-        ballRadius: 26, // 中心球大小
+        fillColor: "#000", //填充颜色
+        strokeColor: "#fff", //描边颜色
+        backgroundColor: "#000", //背景颜色
+        borderWidth: 5, // 描边大小
+        ballRadius: 20, // 中心球大小
         spikeCount: 7, // 触手数量
-        spikeLength: 40, // 触手长度
-        baseWidth: 25, // 根部宽度
-        tipWidth: 20, // 顶部宽度
+        spikeLength: 20, // 触手长度
+        baseWidth: 18, // 根部宽度
+        tipWidth: 14, // 顶部宽度
+        blurAmount: 0, //模糊大小
         stiffness: 0.1, // 触手弹性
         damping: 0.85, // 触手阻尼
         inertiaFactor: 0.2, // 惯性基础系数
         animationSpeed: 0.03, // 动画速度
-        randomness: 0.15, // 随机性
-        cornerRadius: 15, // 圆角半径
+        randomness: 0.1, // 随机性
+        rotateSpeed: 0.05, // 旋转速度
     });
 
     const svgRef = useRef(null);
@@ -23,9 +29,25 @@ const Octopus = () => {
     const lastCenter = useRef({ x: 400, y: 400 });
     const velocity = useRef({ x: 0, y: 0 });
     const targetMouse = useRef({ x: 400, y: 400 });
-
+    const isRotating = useRef(false);
+  
     // 触手状态
     const spikesRef = useRef([]);
+    const [svgSize, setSvgSize] = useState({
+        width: window.innerWidth,
+        height: window.innerHeight,
+    });
+
+    useEffect(() => {
+        const handleResize = () => {
+            setSvgSize({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     // 初始化触手
     const initSpikes = () => {
@@ -44,10 +66,7 @@ const Octopus = () => {
 
             // 计算实际宽度（确保顶部宽度不超过根部宽度）
             const baseWidth = config.baseWidth * widthFactor;
-            const tipWidth = Math.min(
-                config.tipWidth * widthFactor,
-                baseWidth * 0.9
-            );
+            const tipWidth = config.tipWidth * widthFactor;
 
             newSpikes.push({
                 id: i,
@@ -86,6 +105,7 @@ const Octopus = () => {
     useEffect(() => {
         initSpikes();
     }, [config]);
+
     function getSmoothPath(points, closed = true) {
         if (points.length < 2) return "";
 
@@ -96,7 +116,6 @@ const Octopus = () => {
             const p2 = points[(i + 1) % points.length];
             const p3 = points[(i + 2) % points.length];
 
-            // Catmull-Rom to Cubic Bezier conversion
             const cp1x = p1.x + (p2.x - p0.x) / 6;
             const cp1y = p1.y + (p2.y - p0.y) / 6;
             const cp2x = p2.x - (p3.x - p1.x) / 6;
@@ -169,8 +188,19 @@ const Octopus = () => {
 
         const svg = svgRef.current;
         svg.addEventListener("mousemove", handleMouseMove);
+        const handleMouseDown = () => {
+            isRotating.current = true;
+        };
+        const handleMouseUp = () => {
+            isRotating.current = false;
+        };
+
+        window.addEventListener("mousedown", handleMouseDown);
+        window.addEventListener("mouseup", handleMouseUp);
 
         return () => {
+            window.removeEventListener("mousedown", handleMouseDown);
+            window.removeEventListener("mouseup", handleMouseUp);
             svg.removeEventListener("mousemove", handleMouseMove);
         };
     }, []);
@@ -196,8 +226,9 @@ const Octopus = () => {
             center.current.y += dy * config.animationSpeed;
 
             // 限制在边界内
-            const maxX = 800 - config.ballRadius - config.spikeLength;
-            const maxY = 800 - config.ballRadius - config.spikeLength;
+            const maxX = svgSize.width - config.ballRadius - config.spikeLength;
+            const maxY =
+                svgSize.height - config.ballRadius - config.spikeLength;
             const min = config.ballRadius + config.spikeLength;
 
             center.current.x = Math.max(min, Math.min(maxX, center.current.x));
@@ -205,6 +236,10 @@ const Octopus = () => {
 
             // 更新触手
             spikesRef.current.forEach((spike) => {
+                if (isRotating.current) {
+                    spike.baseAngle += config.rotateSpeed;
+                }
+
                 // 更新基点位置（跟随中心球）
                 spike.basePosition = {
                     x:
@@ -269,6 +304,12 @@ const Octopus = () => {
             [key]: numValue,
         }));
     };
+    const handleColorChange = (key, value) => {
+        setConfig((prev) => ({
+            ...prev,
+            [key]: value,
+        }));
+    };
 
     // 随机化触手分布
     const randomizeSpikes = () => {
@@ -277,221 +318,22 @@ const Octopus = () => {
 
     return (
         <div className="container">
-            <h1>高级触手球动画</h1>
-
-            <div className="control-panel">
-                <div className="control-group">
-                    <label>中心球大小: {config.ballRadius}</label>
-                    <input
-                        type="range"
-                        min="10"
-                        max="60"
-                        value={config.ballRadius}
-                        onChange={(e) =>
-                            handleConfigChange("ballRadius", e.target.value)
-                        }
-                    />
-                </div>
-
-                <div className="control-group">
-                    <label>触手数量: {config.spikeCount}</label>
-                    <input
-                        type="range"
-                        min="1"
-                        max="20"
-                        value={config.spikeCount}
-                        onChange={(e) =>
-                            handleConfigChange("spikeCount", e.target.value)
-                        }
-                    />
-                </div>
-
-                <div className="control-group">
-                    <label>触手长度: {config.spikeLength}</label>
-                    <input
-                        type="range"
-                        min="10"
-                        max="200"
-                        value={config.spikeLength}
-                        onChange={(e) =>
-                            handleConfigChange("spikeLength", e.target.value)
-                        }
-                    />
-                </div>
-
-                <div className="control-group">
-                    <label>根部宽度: {config.baseWidth.toFixed(1)}</label>
-                    <input
-                        type="range"
-                        min="10"
-                        max="40"
-                        step="0.5"
-                        value={config.baseWidth}
-                        onChange={(e) =>
-                            handleConfigChange("baseWidth", e.target.value)
-                        }
-                    />
-                </div>
-
-                <div className="control-group">
-                    <label>顶部宽度: {config.tipWidth.toFixed(1)}</label>
-                    <input
-                        type="range"
-                        min="5"
-                        max="35"
-                        step="0.5"
-                        value={config.tipWidth}
-                        onChange={(e) =>
-                            handleConfigChange("tipWidth", e.target.value)
-                        }
-                    />
-                </div>
-
-                <div className="control-group">
-                    <label>弹性: {config.stiffness.toFixed(2)}</label>
-                    <input
-                        type="range"
-                        min="0.05"
-                        max="0.5"
-                        step="0.01"
-                        value={config.stiffness}
-                        onChange={(e) =>
-                            handleConfigChange("stiffness", e.target.value)
-                        }
-                    />
-                </div>
-
-                <div className="control-group">
-                    <label>阻尼: {config.damping.toFixed(2)}</label>
-                    <input
-                        type="range"
-                        min="0.5"
-                        max="0.99"
-                        step="0.01"
-                        value={config.damping}
-                        onChange={(e) =>
-                            handleConfigChange("damping", e.target.value)
-                        }
-                    />
-                </div>
-
-                <div className="control-group">
-                    <label>惯性系数: {config.inertiaFactor.toFixed(2)}</label>
-                    <input
-                        type="range"
-                        min="0"
-                        max="1"
-                        step="0.05"
-                        value={config.inertiaFactor}
-                        onChange={(e) =>
-                            handleConfigChange("inertiaFactor", e.target.value)
-                        }
-                    />
-                </div>
-
-                <div className="control-group">
-                    <label>动画速度: {config.animationSpeed.toFixed(3)}</label>
-                    <input
-                        type="range"
-                        min="0.001"
-                        max="0.1"
-                        step="0.001"
-                        value={config.animationSpeed}
-                        onChange={(e) =>
-                            handleConfigChange("animationSpeed", e.target.value)
-                        }
-                    />
-                </div>
-
-                <div className="control-group">
-                    <label>圆角半径: {config.cornerRadius}</label>
-                    <input
-                        type="range"
-                        min="0"
-                        max="50"
-                        step="1"
-                        value={config.cornerRadius}
-                        onChange={(e) =>
-                            handleConfigChange("cornerRadius", e.target.value)
-                        }
-                    />
-                </div>
-                <div className="control-group">
-                    <label>随机性: {config.randomness.toFixed(2)}</label>
-                    <input
-                        type="range"
-                        min="0"
-                        max="0.8"
-                        step="0.05"
-                        value={config.randomness}
-                        onChange={(e) =>
-                            handleConfigChange("randomness", e.target.value)
-                        }
-                    />
-                </div>
-
-                <button className="randomize-btn" onClick={randomizeSpikes}>
-                    随机化触手
-                </button>
-            </div>
-
-            <div className="instruction">
-                <p>移动鼠标拖动触手球，观察触手摆动效果</p>
-            </div>
-
             <svg
                 ref={svgRef}
-                width="800"
-                height="800"
-                viewBox="0 0 800 800"
+                width="100%"
+                height="100%"
+                viewBox={`0 0 ${svgSize.width} ${svgSize.height}`}
                 style={{
-                    background: "radial-gradient(circle, #1a1a2e, #16213e)",
+                    background: config.backgroundColor,
                 }}>
-                <defs>
-                    <radialGradient
-                        id="ballGradient"
-                        cx="50%"
-                        cy="50%"
-                        r="50%"
-                        fx="30%"
-                        fy="30%">
-                        <stop offset="0%" stopColor="#4facfe" />
-                        <stop offset="100%" stopColor="#00f2fe" />
-                    </radialGradient>
-
-                    <linearGradient
-                        id="spikeGradient"
-                        x1="0%"
-                        y1="0%"
-                        x2="100%"
-                        y2="100%">
-                        <stop offset="0%" stopColor="#4facfe" />
-                        <stop offset="100%" stopColor="#00f2fe" />
-                    </linearGradient>
-
-                    <filter
-                        id="glow"
-                        x="-50%"
-                        y="-50%"
-                        width="200%"
-                        height="200%">
-                        <feGaussianBlur
-                            in="SourceGraphic"
-                            stdDeviation="5"
-                            result="blur"
-                        />
-                        <feBlend in="SourceGraphic" in2="blur" mode="lighten" />
-                    </filter>
-                </defs>
-
                 {/* 触手路径 */}
                 <path
                     ref={pathRef}
                     d=""
-                    fill="url(#spikeGradient)"
-                    stroke="#00f2fe"
-                    strokeWidth="1.5"
-                    opacity="0.85"
+                    fill={config.fillColor}
+                    stroke={config.strokeColor}
+                    strokeWidth={config.borderWidth}
+                    // opacity="0.85"
                     filter="url(#glow)"
                 />
             </svg>
