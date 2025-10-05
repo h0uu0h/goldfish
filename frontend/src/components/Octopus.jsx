@@ -30,7 +30,7 @@ const Octopus = () => {
     const velocity = useRef({ x: 0, y: 0 });
     const targetMouse = useRef({ x: 400, y: 400 });
     const isRotating = useRef(false);
-  
+
     // 触手状态
     const spikesRef = useRef([]);
     const [svgSize, setSvgSize] = useState({

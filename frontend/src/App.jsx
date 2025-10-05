@@ -12,8 +12,8 @@ function App() {
 
     return (
         <>
-            {/* <Octopus /> */}
-            <SpikyBall />
+            <Octopus />
+            {/* <SpikyBall /> */}
         </>
     );
 }
