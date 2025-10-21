@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 const Octopus = () => {
@@ -7,7 +7,7 @@ const Octopus = () => {
     const [config, setConfig] = useState({
         fillColor: "#000", //填充颜色
         strokeColor: "#fff", //描边颜色
-        backgroundColor: "#000", //背景颜色
+        backgroundColor: "rgba(0, 0, 0, 0)", //背景颜色
         borderWidth: 5, // 描边大小
         ballRadius: 20, // 中心球大小
         spikeCount: 7, // 触手数量
@@ -187,7 +187,7 @@ const Octopus = () => {
         };
 
         const svg = svgRef.current;
-        svg.addEventListener("mousemove", handleMouseMove);
+        window.addEventListener("mousemove", handleMouseMove);
         const handleMouseDown = () => {
             isRotating.current = true;
         };
@@ -317,7 +317,7 @@ const Octopus = () => {
     };
 
     return (
-        <div className="container">
+        <div className="cursor-container">
             <svg
                 ref={svgRef}
                 width="100%"

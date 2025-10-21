@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 const SpikyBall = () => {
@@ -111,7 +111,6 @@ const SpikyBall = () => {
             // 更新中心位置
             const dx = targetMouse.current.x - center.current.x;
             const dy = targetMouse.current.y - center.current.y;
-            const dist = Math.hypot(dx, dy);
 
             // 计算速度
             velocity.current = {
