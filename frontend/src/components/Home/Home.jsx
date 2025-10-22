@@ -56,7 +56,7 @@ const Home = () => {
                         containerRect.width / 2 -
                         card.offsetWidth / 2;
                     const randomY =
-                        gsap.utils.random(-100, 100) +
+                        gsap.utils.random(-10, 10) +
                         containerRect.height / 2 -
                         card.offsetHeight / 2;
                     gsap.set(card, {
@@ -122,7 +122,11 @@ const Home = () => {
 
             // 调用初始布局
             layoutCards();
+            const handleResize = () => layoutCards();
+            window.addEventListener("resize", handleResize);
 
+            // 把监听器保存到容器上，方便清理时移除
+            container._handleResize = handleResize;
             // 悬浮效果 & 层级
             cards.forEach((card) => {
                 let hoverAnim;
@@ -184,30 +188,47 @@ const Home = () => {
 
     // 清理桌面端效果
     const cleanupDesktopEffects = () => {
-        if (ctx.current) {
-            ctx.current.revert();
-        }
+        // 1) 先 kill Draggable 实例（如果有）
         if (draggableInstances.current.length > 0) {
             draggableInstances.current.forEach((instance) => instance.kill());
             draggableInstances.current = [];
         }
 
-        // 重置所有卡片样式
+        // 2) revert gsap context（这会移除大多数动画）
+        if (ctx.current) {
+            try {
+                ctx.current.revert();
+            } catch (e) {
+                // 防御性处理：如果 revert 抛错也不阻断后续清理
+                console.warn("ctx.revert() failed:", e);
+            }
+            ctx.current = null;
+        }
+
+        // 3) 移除窗口 resize 监听（如果之前绑定到了 container）
+        const container = containerRef.current;
+        if (container && container._handleResize) {
+            window.removeEventListener("resize", container._handleResize);
+            delete container._handleResize;
+        }
+
+        // 4) 移除每个 card 的事件监听器并彻底清理 inline 样式
         const cards = document.querySelectorAll(".work-card");
         cards.forEach((card) => {
-            card.removeEventListener("mouseenter", card._onEnter);
-            card.removeEventListener("mouseleave", card._onLeave);
-            delete card._onEnter;
-            delete card._onLeave;
-            gsap.set(card, {
-                x: 0,
-                y: 0,
-                rotation: 0,
-                scale: 1,
-                boxShadow: "none",
-            });
+            // 移除鼠标事件
+            if (card._onEnter) {
+                card.removeEventListener("mouseenter", card._onEnter);
+                card.removeEventListener("mouseleave", card._onLeave);
+                delete card._onEnter;
+                delete card._onLeave;
+            }
+
+            // 使用 style 属性显式清理（比仅用 clearProps 更可靠）
+            card.style.transform = "";
         });
+        gsap.killTweensOf(".work-card");
     };
+
 
     // 初始化移动端效果
     const initMobileEffects = () => {
