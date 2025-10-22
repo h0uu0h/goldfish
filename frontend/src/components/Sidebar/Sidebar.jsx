@@ -31,7 +31,7 @@ const Sidebar = () => {
                     )}
                 </nav>
             </div>
-            <div className="topbar">HOU</div>
+            <div className="topbar">works</div>
         </>
     );
 };

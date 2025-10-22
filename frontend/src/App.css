@@ -9,7 +9,6 @@ html,
 body {
   margin: 0;
   padding: 0;
-  /* 禁用滚动 */
   height: 100%;
   width: 100%;
 }
@@ -17,6 +16,7 @@ body {
 .container {
   position: relative;
   height: 100vh;
+  overflow-x: hidden;
   width: 100%;
   display: flex;
 }

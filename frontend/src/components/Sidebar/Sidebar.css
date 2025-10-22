@@ -1,5 +1,7 @@
 /* Sidebar.css */
 .sidebar {
+    position: fixed;
+    left: 0;
     width: 360px;
     height: 100vh;
     background-color: #000;
@@ -8,8 +10,6 @@
     display: flex;
     flex-direction: column;
     border-right: 2px solid #ffffff;
-    position: fixed;
-    left: 0;
     overflow: hidden;
     z-index: 1000;
 }
@@ -69,7 +69,7 @@
 /* 响应式设计 */
 @media (max-width: 768px) {
     .sidebar {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;

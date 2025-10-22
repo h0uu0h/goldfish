@@ -1,0 +1,110 @@
+[
+    {
+        "id": 1,
+        "title": "山间日出",
+        "artist": "张三",
+        "image": "/goldfish/works/previews/1.jpg",
+        "category": "风景",
+        "likes": 128,
+        "date": "2023-10-15"
+    },
+    {
+        "id": 2,
+        "title": "城市夜景",
+        "artist": "李四",
+        "image": "/goldfish/works/previews/2.jpg",
+        "category": "城市",
+        "likes": 95,
+        "date": "2023-09-22"
+    },
+    {
+        "id": 3,
+        "title": "抽象艺术",
+        "artist": "王五",
+        "image": "/goldfish/works/previews/3.jpg",
+        "category": "抽象",
+        "likes": 156,
+        "date": "2023-11-05"
+    },
+    {
+        "id": 4,
+        "title": "海边日落",
+        "artist": "赵六",
+        "image": "/goldfish/works/previews/4.jpg",
+        "category": "自然",
+        "likes": 203,
+        "date": "2023-08-30"
+    },
+    {
+        "id": 5,
+        "title": "静物摄影",
+        "artist": "钱七",
+        "image": "/goldfish/works/previews/5.jpg",
+        "category": "摄影",
+        "likes": 87,
+        "date": "2023-10-08"
+    },
+    {
+        "id": 6,
+        "title": "数字艺术",
+        "artist": "孙八",
+        "image": "/goldfish/works/previews/6.jpg",
+        "category": "数字艺术",
+        "likes": 312,
+        "date": "2023-11-20"
+    },
+    {
+        "id": 7,
+        "title": "山间日出",
+        "artist": "张三",
+        "image": "/goldfish/works/previews/7.jpg",
+        "category": "风景",
+        "likes": 128,
+        "date": "2023-10-15"
+    },
+    {
+        "id": 8,
+        "title": "城市夜景",
+        "artist": "李四",
+        "image": "/goldfish/works/previews/8.jpg",
+        "category": "城市",
+        "likes": 95,
+        "date": "2023-09-22"
+    },
+    {
+        "id": 9,
+        "title": "抽象艺术",
+        "artist": "王五",
+        "image": "/goldfish/works/previews/9.jpg",
+        "category": "抽象",
+        "likes": 156,
+        "date": "2023-11-05"
+    },
+    {
+        "id": 10,
+        "title": "海边日落",
+        "artist": "赵六",
+        "image": "/goldfish/works/previews/10.jpg",
+        "category": "自然",
+        "likes": 203,
+        "date": "2023-08-30"
+    },
+    {
+        "id": 11,
+        "title": "静物摄影",
+        "artist": "钱七",
+        "image": "/goldfish/works/previews/11.jpg",
+        "category": "摄影",
+        "likes": 87,
+        "date": "2023-10-08"
+    },
+    {
+        "id": 12,
+        "title": "数字艺术",
+        "artist": "孙八",
+        "image": "/goldfish/works/previews/12.jpg",
+        "category": "数字艺术",
+        "likes": 312,
+        "date": "2023-11-20"
+    }
+]
