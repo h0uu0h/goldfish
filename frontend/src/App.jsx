@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import Fish from "./components/Fish";
@@ -10,12 +10,36 @@ import Home from "./components/Home";
 import "./App.css";
 
 function App() {
-    const [count, setCount] = useState(0);
+    useEffect(() => {
+        const handleContextMenu = (e) => e.preventDefault();
+        document.addEventListener("contextmenu", handleContextMenu);
+
+        return () => {
+            document.removeEventListener("contextmenu", handleContextMenu);
+        };
+    }, []);
+    const [isOctopusPinned, setIsOctopusPinned] = useState(true);
+    const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
+
+    const handlePinOctopus = () => {
+        setIsOctopusPinned(!isOctopusPinned); // 切换固定状态
+    };
+
+    const handleToggleSidebar = (collapsed) => {
+        setIsSidebarCollapsed(collapsed);
+    };
 
     return (
         <div className="container">
-            <Octopus />
-            <Sidebar />
+            <Octopus
+                isPinned={isOctopusPinned}
+                isSidebarCollapsed={isSidebarCollapsed}
+            />
+            <Sidebar
+                onPinOctopus={handlePinOctopus}
+                isCollapsed={isSidebarCollapsed}
+                onToggleCollapse={handleToggleSidebar}
+            />
             <Home />
             {/* <Fish /> */}
             {/* <SpikyBall /> */}

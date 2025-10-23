@@ -1,19 +1,20 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
-const Octopus = () => {
+const Octopus = ({ isPinned, isSidebarCollapsed }) => {
     // 可调节参数
     const [config, setConfig] = useState({
         fillColor: "#000", //填充颜色
         strokeColor: "#fff", //描边颜色
         backgroundColor: "rgba(0, 0, 0, 0)", //背景颜色
-        borderWidth: 5, // 描边大小
-        ballRadius: 20, // 中心球大小
+        borderWidth: 2, // 描边大小
+        ballRadius: 8, // 中心球大小
         spikeCount: 7, // 触手数量
-        spikeLength: 20, // 触手长度
-        baseWidth: 18, // 根部宽度
-        tipWidth: 14, // 顶部宽度
+        spikeLength: 8, // 触手长度
+        baseWidth: 8, // 根部宽度
+        tipWidth: 6, // 顶部宽度
         blurAmount: 0, //模糊大小
         stiffness: 0.1, // 触手弹性
         damping: 0.85, // 触手阻尼
@@ -22,7 +23,6 @@ const Octopus = () => {
         randomness: 0.1, // 随机性
         rotateSpeed: 0.05, // 旋转速度
     });
-
     const svgRef = useRef(null);
     const pathRef = useRef(null);
     const center = useRef({ x: 400, y: 400 });
@@ -37,6 +37,11 @@ const Octopus = () => {
         width: window.innerWidth,
         height: window.innerHeight,
     });
+    const svgSizeRef = useRef(svgSize);
+
+    useEffect(() => {
+        svgSizeRef.current = svgSize;
+    }, [svgSize]);
 
     useEffect(() => {
         const handleResize = () => {
@@ -48,6 +53,33 @@ const Octopus = () => {
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
+
+    // 计算固定位置
+    const getPinnedPosition = () => {
+        const sidebarWidth = isSidebarCollapsed ? 50 : 360; // 根据侧边栏状态调整宽度
+        const headerHeight = 50;
+
+        return {
+            x: sidebarWidth / 2,
+            y: headerHeight / 2,
+        };
+    };
+
+    // 当固定状态或侧边栏状态改变时，重新定位
+    useEffect(() => {
+        if (isPinned) {
+            const pinnedPos = getPinnedPosition();
+            center.current = pinnedPos;
+            lastCenter.current = { ...pinnedPos };
+            targetMouse.current = { ...pinnedPos };
+
+            // 重置速度
+            velocity.current = { x: 0, y: 0 };
+
+            // 重新初始化触手位置
+            initSpikes();
+        }
+    }, [isPinned, isSidebarCollapsed]);
 
     // 初始化触手
     const initSpikes = () => {
@@ -130,6 +162,7 @@ const Octopus = () => {
 
         return d;
     }
+
     const createPath = () => {
         const spikes = spikesRef.current;
         if (spikes.length === 0) return "";
@@ -177,7 +210,7 @@ const Octopus = () => {
     // 鼠标移动事件处理
     useEffect(() => {
         const handleMouseMove = (e) => {
-            if (!svgRef.current) return;
+            if (!svgRef.current || isPinned) return; // 固定状态下不跟随鼠标
 
             const rect = svgRef.current.getBoundingClientRect();
             targetMouse.current = {
@@ -203,36 +236,65 @@ const Octopus = () => {
             window.removeEventListener("mouseup", handleMouseUp);
             svg.removeEventListener("mousemove", handleMouseMove);
         };
-    }, []);
+    }, [isPinned]);
+
+    // 计算固定时的容器尺寸和viewBox
+    const getPinnedDimensions = () => {
+        const sidebarWidth = isSidebarCollapsed ? 50 : 360;
+        const headerHeight = 50;
+
+        return {
+            width: sidebarWidth,
+            height: headerHeight,
+            viewBoxWidth: sidebarWidth,
+            viewBoxHeight: headerHeight,
+        };
+    };
 
     // 动画循环
     useEffect(() => {
         const update = () => {
-            // 更新中心位置
-            const dx = targetMouse.current.x - center.current.x;
-            const dy = targetMouse.current.y - center.current.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (isPinned) {
+                // 固定状态下，根据侧边栏状态调整位置
+                const pinnedPos = getPinnedPosition();
+                center.current = pinnedPos;
+            } else {
+                // 更新中心位置
+                const dx = targetMouse.current.x - center.current.x;
+                const dy = targetMouse.current.y - center.current.y;
 
-            // 计算速度
-            velocity.current = {
-                x: center.current.x - lastCenter.current.x,
-                y: center.current.y - lastCenter.current.y,
-            };
+                // 计算速度
+                velocity.current = {
+                    x: center.current.x - lastCenter.current.x,
+                    y: center.current.y - lastCenter.current.y,
+                };
 
-            lastCenter.current = { ...center.current };
+                lastCenter.current = { ...center.current };
 
-            // 移动中心点
-            center.current.x += dx * config.animationSpeed;
-            center.current.y += dy * config.animationSpeed;
+                // 移动中心点
+                center.current.x += dx * config.animationSpeed;
+                center.current.y += dy * config.animationSpeed;
 
-            // 限制在边界内
-            const maxX = svgSize.width - config.ballRadius - config.spikeLength;
-            const maxY =
-                svgSize.height - config.ballRadius - config.spikeLength;
-            const min = config.ballRadius + config.spikeLength;
+                // 限制在边界内
+                const maxX =
+                    svgSizeRef.current.width -
+                    config.ballRadius -
+                    config.spikeLength;
+                const maxY =
+                    svgSizeRef.current.height -
+                    config.ballRadius -
+                    config.spikeLength;
+                const min = config.ballRadius + config.spikeLength;
 
-            center.current.x = Math.max(min, Math.min(maxX, center.current.x));
-            center.current.y = Math.max(min, Math.min(maxY, center.current.y));
+                center.current.x = Math.max(
+                    min,
+                    Math.min(maxX, center.current.x)
+                );
+                center.current.y = Math.max(
+                    min,
+                    Math.min(maxY, center.current.y)
+                );
+            }
 
             // 更新触手
             spikesRef.current.forEach((spike) => {
@@ -294,35 +356,29 @@ const Octopus = () => {
 
         const ticker = gsap.ticker.add(update);
         return () => gsap.ticker.remove(ticker);
-    }, [config]);
+    }, [config, isPinned, isSidebarCollapsed]);
 
-    // 处理参数变化
-    const handleConfigChange = (key, value) => {
-        const numValue = Number(value);
-        setConfig((prev) => ({
-            ...prev,
-            [key]: numValue,
-        }));
-    };
-    const handleColorChange = (key, value) => {
-        setConfig((prev) => ({
-            ...prev,
-            [key]: value,
-        }));
-    };
-
-    // 随机化触手分布
-    const randomizeSpikes = () => {
-        initSpikes();
-    };
+    const pinnedDimensions = getPinnedDimensions();
 
     return (
-        <div className="cursor-container">
+        <div
+            className={`cursor-container ${isPinned ? "pinned" : ""}`}
+            style={{
+                zIndex: isPinned ? 1001 : "auto",
+                width: isPinned ? `${pinnedDimensions.width}px` : "100%",
+                height: isPinned ? `${pinnedDimensions.height}px` : "100%",
+                left: isPinned ? 0 : "auto",
+                top: isPinned ? 0 : "auto",
+            }}>
             <svg
                 ref={svgRef}
                 width="100%"
                 height="100%"
-                viewBox={`0 0 ${svgSize.width} ${svgSize.height}`}
+                viewBox={`0 0 ${
+                    isPinned ? pinnedDimensions.viewBoxWidth : svgSize.width
+                } ${
+                    isPinned ? pinnedDimensions.viewBoxHeight : svgSize.height
+                }`}
                 style={{
                     background: config.backgroundColor,
                 }}>
@@ -333,7 +389,6 @@ const Octopus = () => {
                     fill={config.fillColor}
                     stroke={config.strokeColor}
                     strokeWidth={config.borderWidth}
-                    // opacity="0.85"
                     filter="url(#glow)"
                 />
             </svg>

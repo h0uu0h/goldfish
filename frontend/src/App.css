@@ -23,12 +23,14 @@ body {
 
 .cursor-container {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   pointer-events: none;
-  /* 确保不阻止鼠标事件 */
   background-color: transparent;
   overflow: hidden;
+}
+
+.cursor-container.pinned {
+  position: fixed;
+  pointer-events: none;
+  overflow: hidden;
+  transition: width 0.3s ease, height 0.3s ease;
 }
