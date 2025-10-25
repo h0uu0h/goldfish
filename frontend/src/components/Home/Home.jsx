@@ -129,31 +129,70 @@ const Home = () => {
             container._handleResize = handleResize;
             // 悬浮效果 & 层级
             cards.forEach((card) => {
-                let hoverAnim;
+                const buttonContainer = card.querySelector(
+                    ".work-button-container"
+                );
+                const button = card.querySelector(".work-button");
+                const line = card.querySelector(".work-line");
+                gsap.set(buttonContainer, { y: "-100%" });
+                let hoverTl = null;
 
                 const onEnter = () => {
-                    gsap.killTweensOf(card);
+                    gsap.set(line, { scaleY: 0, transformOrigin: "bottom" });
+                    if (hoverTl) hoverTl.kill(); // 清理旧动画
                     zIndexCounter++;
                     gsap.set(card, { zIndex: zIndexCounter });
-
-                    hoverAnim = gsap.to(card, {
-                        scale: 1.1,
-                        rotation: "+=" + gsap.utils.random(-15, 15),
-                        duration: 0.4,
-                        ease: "elastic.out(1, 0.4)",
-                        boxShadow: "0px 0px 20px rgba(255, 255, 255, 1)",
-                    });
+                    hoverTl = gsap.timeline();
+                    hoverTl
+                        .to(card, {
+                            scale: 1.1,
+                            rotation: "+=" + gsap.utils.random(-15, 15),
+                            duration: 0.4,
+                            ease: "elastic.out(1,0.4)",
+                            boxShadow: "0px 0px 20px rgba(255,255,255,1)",
+                        })
+                        .to(
+                            buttonContainer,
+                            {
+                                y: 0,
+                                duration: 0.5,
+                                ease: "power2.out",
+                                opacity: 1,
+                            },
+                            "<"
+                        )
+                        .to(
+                            line,
+                            { scaleY: 1, duration: 0.5, ease: "power2.out" },
+                            "<"
+                        );
                 };
-
                 const onLeave = () => {
-                    hoverAnim && hoverAnim.kill();
-                    gsap.to(card, {
-                        scale: 1,
-                        duration: 0.4,
-                        rotation: 0,
-                        ease: "elastic.out(1, 0.4)",
-                        boxShadow: "none",
-                    });
+                    if (hoverTl) hoverTl.kill();
+                    hoverTl = gsap.timeline();
+                    hoverTl
+                        .to(card, {
+                            scale: 1,
+                            rotation: 0,
+                            duration: 0.4,
+                            ease: "elastic.out(1,0.4)",
+                            boxShadow: "none",
+                        })
+                        .to(
+                            buttonContainer,
+                            {
+                                y: "-100%",
+                                duration: 0.4,
+                                ease: "power2.in",
+                                opacity: 0,
+                            },
+                            "<"
+                        )
+                        .to(
+                            line,
+                            { scaleY: 0, duration: 0.4, ease: "power2.in" },
+                            "<"
+                        );
                 };
 
                 card.addEventListener("mouseenter", onEnter);
@@ -162,25 +201,119 @@ const Home = () => {
                 // ✅ 保存引用用于后续清理
                 card._onEnter = onEnter;
                 card._onLeave = onLeave;
+                let btnHoverTl = null;
+                const onButtonEnter = () => {
+                    if (btnHoverTl) btnHoverTl.kill();
+                    btnHoverTl = gsap.timeline();
+                    btnHoverTl.to(button, {
+                        scale: 1.3,
+                        y: -4,
+                        boxShadow: "0px 0px 10px rgba(255,255,255,0.8)",
+                        duration: 0.3,
+                        ease: "power2.out",
+                    });
+                };
+                const onButtonLeave = () => {
+                    if (btnHoverTl) btnHoverTl.kill();
+                    btnHoverTl = gsap.timeline();
+                    btnHoverTl.to(button, {
+                        scale: 1,
+                        y: 0,
+                        boxShadow: "none",
+                        duration: 0.3,
+                        ease: "power2.inOut",
+                    });
+                };
+
+                button.addEventListener("mouseenter", onButtonEnter);
+                button.addEventListener("mouseleave", onButtonLeave);
+                card._onButtonEnter = onButtonEnter;
+                card._onButtonLeave = onButtonLeave;
+
+                const onButtonClick = () => {
+                    gsap.set(line, { transformOrigin: "top" });
+                    const tl = gsap.timeline({
+                        onComplete: () => {
+                            // 触发 work 详情显示逻辑
+                            console.log("显示 work 详情:", card);
+                        },
+                    });
+
+                    tl.to(
+                        line, // 同时操作按钮和线条
+                        {
+                            scaleY: 2, // 线条拉长
+                            duration: 0.2,
+                            ease: "power2.in",
+                        }
+                    )
+                        .to(
+                            button,
+                            {
+                                y: 50, // 按钮下移
+                                duration: 0.2,
+                                ease: "power2.in",
+                            },
+                            "<"
+                        )
+                        .to(buttonContainer, {
+                            y: "-100%", // 回到初始位置
+                            scaleY: 1,
+                            duration: 0.5,
+                            ease: "elastic.out(1, 0.5)",
+                            opacity: 0,
+                        });
+                };
+
+                button.addEventListener("click", onButtonClick);
+                card._onButtonClick = onButtonClick; // 保存引用以便清理
             });
 
             // 拖拽功能
             cards.forEach((card) => {
+                const buttonContainer = card.querySelector(
+                    ".work-button-container"
+                );
                 const draggable = Draggable.create(card, {
                     bounds: container,
+                    inertia: true,
                     onPress() {
                         zIndexCounter++;
                         gsap.set(card, { zIndex: zIndexCounter });
+                        gsap.set(buttonContainer, {
+                            transformOrigin: "top center",
+                        });
+                        gsap.to(buttonContainer, {
+                            rotation: 0,
+                            duration: 0.2,
+                        });
                     },
                     onDrag() {
+                        // 根据水平速度 deltaX 计算旋转角度
+                        const rotation = gsap.utils.clamp(-20, 20, this.deltaX);
+
+                        // 用快速过渡模拟物理晃动
+                        gsap.to(buttonContainer, {
+                            rotation,
+                            duration: 0.15,
+                            ease: "power2.out",
+                        });
                         gsap.to(card, {
                             rotation: 0,
                             scale: 1,
                             duration: 0.2,
                         });
                     },
-                    inertia: true,
+                    onRelease() {
+                        // 惯性回弹 + 小幅摆动
+                        gsap.to(buttonContainer, {
+                            rotation: 0,
+                            duration: 1.2,
+                            ease: "elastic.out(1, 0.3)",
+                        });
+                    },
                 });
+
                 draggableInstances.current.push(draggable[0]);
             });
         }, containerRef);
@@ -222,13 +355,23 @@ const Home = () => {
                 delete card._onEnter;
                 delete card._onLeave;
             }
-
+            if (card._onButtonEnter) {
+                const button = card.querySelector(".work-button");
+                button.removeEventListener("mouseenter", card._onButtonEnter);
+                button.removeEventListener("mouseleave", card._onButtonLeave);
+                delete card._onButtonEnter;
+                delete card._onButtonLeave;
+            }
+            if (card._onButtonClick) {
+                const button = card.querySelector(".work-button");
+                button.removeEventListener("click", card._onButtonClick);
+                delete card._onButtonClick;
+            }
             // 使用 style 属性显式清理（比仅用 clearProps 更可靠）
             card.style.transform = "";
         });
         gsap.killTweensOf(".work-card");
     };
-
 
     // 初始化移动端效果
     const initMobileEffects = () => {
@@ -274,6 +417,10 @@ const Home = () => {
                 <div className="works-grid" ref={containerRef}>
                     {works.map((work) => (
                         <div key={work.id} className="work-card">
+                            <div className="work-button-container">
+                                <div className="work-line"></div>
+                                <button className="work-button">→</button>
+                            </div>
                             <div className="work-image">
                                 <img src={work.image} alt={work.title} />
                             </div>

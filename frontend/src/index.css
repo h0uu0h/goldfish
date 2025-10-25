@@ -1,5 +1,4 @@
 :root {
-  font-family: 'Afacad', 'MiSans', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 550;
   font-size: 24px;
@@ -17,6 +16,8 @@
 body {
   min-width: 320px;
   min-height: 100vh;
+  font-family: 'Afacad', 'MiSans', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
 }
 
 @font-face {
