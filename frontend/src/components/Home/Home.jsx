@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import "./Home.css";
 import { gsap } from "gsap";
 import { Draggable } from "gsap/Draggable";
+import WorkCard from "./WorkCard";
 
 const Home = () => {
     const [works, setWorks] = useState([]);
@@ -9,6 +10,7 @@ const Home = () => {
     const containerRef = useRef(null);
     const ctx = useRef();
     const draggableInstances = useRef([]);
+    const cardRefs = useRef([]);
 
     useEffect(() => {
         fetch("/goldfish/works/works.json")
@@ -42,7 +44,7 @@ const Home = () => {
 
         ctx.current = gsap.context(() => {
             const container = containerRef.current;
-            const cards = gsap.utils.toArray(".work-card");
+            const cards = cardRefs.current.filter((ref) => ref !== null);
             let zIndexCounter = 1;
 
             // 布局函数
@@ -51,14 +53,8 @@ const Home = () => {
 
                 // 初始随机放置
                 cards.forEach((card) => {
-                    const randomX =
-                        gsap.utils.random(-100, 100) +
-                        containerRect.width / 2 -
-                        card.offsetWidth / 2;
-                    const randomY =
-                        gsap.utils.random(-10, 10) +
-                        containerRect.height / 2 -
-                        card.offsetHeight / 2;
+                    const randomX = gsap.utils.random(-100, 100) + containerRect.width / 2 - card.offsetWidth / 2;
+                    const randomY = gsap.utils.random(-10, 10) + containerRect.height / 2 - card.offsetHeight / 2;
                     gsap.set(card, {
                         x: randomX,
                         y: randomY,
@@ -103,10 +99,7 @@ const Home = () => {
                 // 边界检测
                 data.forEach((c) => {
                     c.x = Math.max(0, Math.min(c.x, containerRect.width - c.w));
-                    c.y = Math.max(
-                        0,
-                        Math.min(c.y, containerRect.height - c.h)
-                    );
+                    c.y = Math.max(0, Math.min(c.y, containerRect.height - c.h));
                 });
 
                 // 应用动画
@@ -127,19 +120,20 @@ const Home = () => {
 
             // 把监听器保存到容器上，方便清理时移除
             container._handleResize = handleResize;
+
             // 悬浮效果 & 层级
             cards.forEach((card) => {
-                const buttonContainer = card.querySelector(
-                    ".work-button-container"
-                );
+                const buttonContainer = card.querySelector(".work-button-container");
                 const button = card.querySelector(".work-button");
                 const line = card.querySelector(".work-line");
-                gsap.set(buttonContainer, { y: "-100%" });
+                const buttonPupils = card.querySelectorAll(".work-button circle");
+
+                gsap.set(buttonContainer, { x: "-50%", y: "-100%", scale: 0.2 });
                 let hoverTl = null;
 
                 const onEnter = () => {
                     gsap.set(line, { scaleY: 0, transformOrigin: "bottom" });
-                    if (hoverTl) hoverTl.kill(); // 清理旧动画
+                    if (hoverTl) hoverTl.kill();
                     zIndexCounter++;
                     gsap.set(card, { zIndex: zIndexCounter });
                     hoverTl = gsap.timeline();
@@ -157,16 +151,14 @@ const Home = () => {
                                 y: 0,
                                 duration: 0.5,
                                 ease: "power2.out",
+                                scale: 1,
                                 opacity: 1,
                             },
                             "<"
                         )
-                        .to(
-                            line,
-                            { scaleY: 1, duration: 0.5, ease: "power2.out" },
-                            "<"
-                        );
+                        .to(line, { scaleY: 1, duration: 0.5, ease: "power2.out" }, "<");
                 };
+
                 const onLeave = () => {
                     if (hoverTl) hoverTl.kill();
                     hoverTl = gsap.timeline();
@@ -185,14 +177,11 @@ const Home = () => {
                                 duration: 0.4,
                                 ease: "power2.in",
                                 opacity: 0,
+                                scale: 0.2,
                             },
                             "<"
                         )
-                        .to(
-                            line,
-                            { scaleY: 0, duration: 0.4, ease: "power2.in" },
-                            "<"
-                        );
+                        .to(line, { scaleY: 0, duration: 0.4, ease: "power2.in" }, "<");
                 };
 
                 card.addEventListener("mouseenter", onEnter);
@@ -201,6 +190,7 @@ const Home = () => {
                 // ✅ 保存引用用于后续清理
                 card._onEnter = onEnter;
                 card._onLeave = onLeave;
+
                 let btnHoverTl = null;
                 const onButtonEnter = () => {
                     if (btnHoverTl) btnHoverTl.kill();
@@ -213,6 +203,7 @@ const Home = () => {
                         ease: "power2.out",
                     });
                 };
+
                 const onButtonLeave = () => {
                     if (btnHoverTl) btnHoverTl.kill();
                     btnHoverTl = gsap.timeline();
@@ -230,50 +221,7 @@ const Home = () => {
                 card._onButtonEnter = onButtonEnter;
                 card._onButtonLeave = onButtonLeave;
 
-                const onButtonClick = () => {
-                    gsap.set(line, { transformOrigin: "top" });
-                    const tl = gsap.timeline({
-                        onComplete: () => {
-                            // 触发 work 详情显示逻辑
-                            console.log("显示 work 详情:", card);
-                        },
-                    });
-
-                    tl.to(
-                        line, // 同时操作按钮和线条
-                        {
-                            scaleY: 2, // 线条拉长
-                            duration: 0.2,
-                            ease: "power2.in",
-                        }
-                    )
-                        .to(
-                            button,
-                            {
-                                y: 50, // 按钮下移
-                                duration: 0.2,
-                                ease: "power2.in",
-                            },
-                            "<"
-                        )
-                        .to(buttonContainer, {
-                            y: "-100%", // 回到初始位置
-                            scaleY: 1,
-                            duration: 0.5,
-                            ease: "elastic.out(1, 0.5)",
-                            opacity: 0,
-                        });
-                };
-
-                button.addEventListener("click", onButtonClick);
-                card._onButtonClick = onButtonClick; // 保存引用以便清理
-            });
-
-            // 拖拽功能
-            cards.forEach((card) => {
-                const buttonContainer = card.querySelector(
-                    ".work-button-container"
-                );
+                // 拖拽功能
                 const draggable = Draggable.create(card, {
                     bounds: container,
                     inertia: true,
@@ -289,14 +237,18 @@ const Home = () => {
                         });
                     },
                     onDrag() {
-                        // 根据水平速度 deltaX 计算旋转角度
-                        const rotation = gsap.utils.clamp(-20, 20, this.deltaX);
-
-                        // 用快速过渡模拟物理晃动
+                        const rotation = gsap.utils.clamp(-30, 30, this.deltaX);
                         gsap.to(buttonContainer, {
                             rotation,
                             duration: 0.15,
                             ease: "power2.out",
+                        });
+                        gsap.to(buttonPupils, {
+                            cx: (i) => {
+                                const baseCx = i === 0 ? 9 + gsap.utils.clamp(-2, 2, this.deltaX) : 21 + gsap.utils.clamp(-2, 2, this.deltaX);
+                                return baseCx;
+                            },
+                            duration: 0.1,
                         });
                         gsap.to(card, {
                             rotation: 0,
@@ -305,11 +257,17 @@ const Home = () => {
                         });
                     },
                     onRelease() {
-                        // 惯性回弹 + 小幅摆动
                         gsap.to(buttonContainer, {
                             rotation: 0,
                             duration: 1.2,
                             ease: "elastic.out(1, 0.3)",
+                        });
+                        gsap.to(buttonPupils, {
+                            cx: (i) => {
+                                const baseCx = i === 0 ? 7 : 19;
+                                return baseCx;
+                            },
+                            duration: 0.1,
                         });
                     },
                 });
@@ -321,34 +279,28 @@ const Home = () => {
 
     // 清理桌面端效果
     const cleanupDesktopEffects = () => {
-        // 1) 先 kill Draggable 实例（如果有）
         if (draggableInstances.current.length > 0) {
             draggableInstances.current.forEach((instance) => instance.kill());
             draggableInstances.current = [];
         }
 
-        // 2) revert gsap context（这会移除大多数动画）
         if (ctx.current) {
             try {
                 ctx.current.revert();
             } catch (e) {
-                // 防御性处理：如果 revert 抛错也不阻断后续清理
                 console.warn("ctx.revert() failed:", e);
             }
             ctx.current = null;
         }
 
-        // 3) 移除窗口 resize 监听（如果之前绑定到了 container）
         const container = containerRef.current;
         if (container && container._handleResize) {
             window.removeEventListener("resize", container._handleResize);
             delete container._handleResize;
         }
 
-        // 4) 移除每个 card 的事件监听器并彻底清理 inline 样式
-        const cards = document.querySelectorAll(".work-card");
+        const cards = cardRefs.current.filter((ref) => ref !== null);
         cards.forEach((card) => {
-            // 移除鼠标事件
             if (card._onEnter) {
                 card.removeEventListener("mouseenter", card._onEnter);
                 card.removeEventListener("mouseleave", card._onLeave);
@@ -362,12 +314,6 @@ const Home = () => {
                 delete card._onButtonEnter;
                 delete card._onButtonLeave;
             }
-            if (card._onButtonClick) {
-                const button = card.querySelector(".work-button");
-                button.removeEventListener("click", card._onButtonClick);
-                delete card._onButtonClick;
-            }
-            // 使用 style 属性显式清理（比仅用 clearProps 更可靠）
             card.style.transform = "";
         });
         gsap.killTweensOf(".work-card");
@@ -411,20 +357,21 @@ const Home = () => {
         };
     }, [works, isMobile]);
 
+    // 重置 cardRefs
+    useEffect(() => {
+        cardRefs.current = cardRefs.current.slice(0, works.length);
+    }, [works]);
+
+    const setCardRef = (index) => (el) => {
+        cardRefs.current[index] = el;
+    };
+
     return (
         <div className="home">
             <div className="home-container">
                 <div className="works-grid" ref={containerRef}>
-                    {works.map((work) => (
-                        <div key={work.id} className="work-card">
-                            <div className="work-button-container">
-                                <div className="work-line"></div>
-                                <button className="work-button">→</button>
-                            </div>
-                            <div className="work-image">
-                                <img src={work.image} alt={work.title} />
-                            </div>
-                        </div>
+                    {works.map((work, index) => (
+                        <WorkCard key={work.slug} work={work} isMobile={isMobile} index={index} ref={setCardRef(index)} />
                     ))}
                 </div>
             </div>

@@ -1,12 +1,8 @@
-/* eslint-disable no-unused-vars */
-import { useState, useEffect } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import Fish from "./components/Fish";
-import Octopus from "./components/Octopus";
-import SpikyBall from "./components/SpikyBall";
+import { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Home from "./components/Home";
+import WorkDetail from "./components/WorkDetail";
 import "./App.css";
 
 function App() {
@@ -18,32 +14,18 @@ function App() {
             document.removeEventListener("contextmenu", handleContextMenu);
         };
     }, []);
-    const [isOctopusPinned, setIsOctopusPinned] = useState(true);
-    const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
-
-    const handlePinOctopus = () => {
-        setIsOctopusPinned(!isOctopusPinned); // 切换固定状态
-    };
-
-    const handleToggleSidebar = (collapsed) => {
-        setIsSidebarCollapsed(collapsed);
-    };
 
     return (
-        <div className="container">
-            <Octopus
-                isPinned={isOctopusPinned}
-                isSidebarCollapsed={isSidebarCollapsed}
-            />
-            <Sidebar
-                onPinOctopus={handlePinOctopus}
-                isCollapsed={isSidebarCollapsed}
-                onToggleCollapse={handleToggleSidebar}
-            />
-            <Home />
-            {/* <Fish /> */}
-            {/* <SpikyBall /> */}
-        </div>
+        <Router basename="/goldfish">
+            <div className="container">
+                <Sidebar />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/work/:slug" element={<WorkDetail />} />
+                    {/* <Route path="*" element={<Home />} /> */}
+                </Routes>
+            </div>
+        </Router>
     );
 }
 

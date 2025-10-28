@@ -1,0 +1,77 @@
+/* components/WorkDetail.css */
+.work-detail {
+    margin: 50px 0 0 50px;
+}
+
+
+.work-detail-content {
+    padding: 8px 8px 0 8px;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    align-items: start;
+}
+
+.work-detail-image {
+    width: 100%;
+    display: grid;
+}
+
+.work-detail-image img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.work-detail-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.work-detail-info h1 {
+    margin: 0;
+}
+
+.work-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.work-category,
+.work-date {
+    border-radius: 20px;
+}
+
+.work-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.work-detail-loading,
+.work-detail-error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.work-detail-error {
+    color: #d32f2f;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .work-detail {
+        margin: 50px 0 0 0;
+    }
+
+}
