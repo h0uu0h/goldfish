@@ -55,6 +55,9 @@ const Home = () => {
                 cards.forEach((card) => {
                     const randomX = gsap.utils.random(-100, 100) + containerRect.width / 2 - card.offsetWidth / 2;
                     const randomY = gsap.utils.random(-10, 10) + containerRect.height / 2 - card.offsetHeight / 2;
+                    console.log("Placing card at:", randomX, randomY);
+                    console.log("Container size:", containerRect.width, containerRect.height);
+                    console.log("Card size:", card.offsetWidth, card.offsetHeight);
                     gsap.set(card, {
                         x: randomX,
                         y: randomY,
@@ -114,7 +117,9 @@ const Home = () => {
             }
 
             // 调用初始布局
-            layoutCards();
+            requestAnimationFrame(() => {
+                layoutCards();
+            });
             const handleResize = () => layoutCards();
             window.addEventListener("resize", handleResize);
 

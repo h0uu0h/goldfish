@@ -23,6 +23,7 @@ const WorkDetail = () => {
                 console.error("加载作品详情失败:", error);
                 setLoading(false);
             });
+        fetch(`/goldfish/works/details/${slug}.json`) // 使用 slug 获取详情
     }, [slug]); // 依赖改为 slug
 
     if (loading) return <div className="work-detail-loading">加载中...</div>;
@@ -39,7 +40,20 @@ const WorkDetail = () => {
                     </div>
                 </div>
                 <div className="work-detail-image">
-                    <img src={work.image} alt={work.title} />
+                    {/* <img src={work.image} alt={work.title} /> */}
+                    {work.detailsImage && work.detailsImage.length > 0 ? (
+                        work.detailsImage.map((src, index) => (
+                            <img
+                                key={index}
+                                src={src}
+                                alt={`${work.title}-${index + 1}`}
+                                loading="lazy"
+                            />
+                        ))
+                    ) : (
+                        <div className="work-meta">暂无更多图片</div>
+                    )}
+
                 </div>
             </div>
         </div>
