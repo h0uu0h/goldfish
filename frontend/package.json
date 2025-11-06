@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://h0uu0h.github.io/goldfish",
+  "homepage": "/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

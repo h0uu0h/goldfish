@@ -3,8 +3,8 @@
         "id": 1,
         "slug":"proj1",
         "title": "北邮人论坛",
-        "image": "/goldfish/works/previews/1.jpg",
-        "detailsImage": ["/goldfish/works/details/1/1.jpg"],
+        "image": "/works/previews/1.jpg",
+        "detailsImage": ["/works/details/1/1.jpg"],
         "category": "UI/UX",
         "year": "2024"
     },
@@ -12,7 +12,7 @@
         "id": 2,
         "slug":"proj2",
         "title": "城市夜景",
-        "image": "/goldfish/works/previews/2.jpg",
+        "image": "/works/previews/2.jpg",
         "category": "城市",
         "year": "2023-09-22"
     },
@@ -20,7 +20,7 @@
         "id": 3,
         "slug":"proj3",
         "title": "抽象艺术",
-        "image": "/goldfish/works/previews/3.jpg",
+        "image": "/works/previews/3.jpg",
         "category": "抽象",
         "year": "2023-11-05"
     },
@@ -28,8 +28,8 @@
         "id": 4,
         "slug":"bupt70th",
         "title": "北邮七十周年校庆",
-        "image": "/goldfish/works/previews/4.jpg",
-        "detailsImage": ["/goldfish/works/details/4/1.jpg", "/goldfish/works/details/4/2.jpg", "/goldfish/works/details/4/3.jpg", "/goldfish/works/details/4/4.jpg"],
+        "image": "/works/previews/4.jpg",
+        "detailsImage": ["/works/details/4/1.jpg", "/works/details/4/2.jpg", "/works/details/4/3.jpg", "/works/details/4/4.jpg"],
         "category": "自然",
         "year": "2023-08-30"
     },
@@ -37,7 +37,7 @@
         "id": 5,
         "slug":"proj5",
         "title": "静物摄影",
-        "image": "/goldfish/works/previews/5.jpg",
+        "image": "/works/previews/5.jpg",
         "category": "摄影",
         "year": "2023-10-08"
     },
@@ -45,7 +45,7 @@
         "id": 6,
         "slug":"proj6",
         "title": "数字艺术",
-        "image": "/goldfish/works/previews/6.jpg",
+        "image": "/works/previews/6.jpg",
         "category": "数字艺术",
         "year": "2023-11-20"
     },
@@ -53,7 +53,7 @@
         "id": 7,
         "slug":"proj7",
         "title": "山间日出",
-        "image": "/goldfish/works/previews/7.jpg",
+        "image": "/works/previews/7.jpg",
         "category": "风景",
         "year": "2023-10-15"
     },
@@ -61,7 +61,7 @@
         "id": 8,
         "slug":"proj8",
         "title": "城市夜景",
-        "image": "/goldfish/works/previews/8.jpg",
+        "image": "/works/previews/8.jpg",
         "category": "城市",
         "year": "2023-09-22"
     },
@@ -69,7 +69,7 @@
         "id": 9,
         "slug":"proj9",
         "title": "抽象艺术",
-        "image": "/goldfish/works/previews/9.jpg",
+        "image": "/works/previews/9.jpg",
         "category": "抽象",
         "year": "2023-11-05"
     },
@@ -77,7 +77,7 @@
         "id": 10,
         "slug":"proj10",
         "title": "海边日落",
-        "image": "/goldfish/works/previews/10.jpg",
+        "image": "/works/previews/10.jpg",
         "category": "自然",
         "year": "2023-08-30"
     },
@@ -85,7 +85,7 @@
         "id": 11,
         "slug":"proj11",
         "title": "静物摄影",
-        "image": "/goldfish/works/previews/11.jpg",
+        "image": "/works/previews/11.jpg",
         "category": "摄影",
         "year": "2023-10-08"
     },
@@ -93,7 +93,7 @@
         "id": 12,
         "slug":"proj12",
         "title": "数字艺术",
-        "image": "/goldfish/works/previews/12.jpg",
+        "image": "/works/previews/12.jpg",
         "category": "数字艺术",
         "year": "2023-11-20"
     }

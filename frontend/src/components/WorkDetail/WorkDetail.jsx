@@ -11,7 +11,7 @@ const WorkDetail = () => {
     useEffect(() => {
         // 从 works.json 中获取特定作品数据
         console.log("Fetching work with slug:", slug);
-        fetch("/goldfish/works/works.json")
+        fetch("/works/works.json")
             .then((response) => response.json())
             .then((data) => {
                 // 根据 slug 查找作品
@@ -23,7 +23,7 @@ const WorkDetail = () => {
                 console.error("加载作品详情失败:", error);
                 setLoading(false);
             });
-        fetch(`/goldfish/works/details/${slug}.json`) // 使用 slug 获取详情
+        fetch(`/works/details/${slug}.json`) // 使用 slug 获取详情
     }, [slug]); // 依赖改为 slug
 
     if (loading) return <div className="work-detail-loading">加载中...</div>;

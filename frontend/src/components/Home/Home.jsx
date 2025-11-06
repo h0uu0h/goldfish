@@ -13,7 +13,7 @@ const Home = () => {
     const cardRefs = useRef([]);
 
     useEffect(() => {
-        fetch("/goldfish/works/works.json")
+        fetch("/works/works.json")
             .then((response) => response.json())
             .then((data) => setWorks(data))
             .catch((error) => console.error("加载作品数据失败:", error));

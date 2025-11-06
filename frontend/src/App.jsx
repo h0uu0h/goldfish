@@ -16,9 +16,9 @@ function App() {
     }, []);
 
     return (
-        <Router basename="/goldfish">
+        <Router basename="/">
+            <Sidebar />
             <div className="container">
-                <Sidebar />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/work/:slug" element={<WorkDetail />} />
