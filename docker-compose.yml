@@ -7,9 +7,17 @@ services:
     depends_on:
       - backend
     restart: always
+    networks:
+      - app-network
 
   backend:
     build: ./backend
     ports:
       - "5000:5000"
     restart: always
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
