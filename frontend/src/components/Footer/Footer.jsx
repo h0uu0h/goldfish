@@ -8,7 +8,7 @@ const Footer = () => {
 
     return (
         <footer className={`footer ${isHomePage ? "footer-home" : ""} ${isWorkPage ? "footer-work" : ""}`}>
-            <p>© 2025 Goldfish Portfolio. All rights reserved.</p>
+            <p>© 2025 Goldfish Portfolio. Not all rights reserved.</p>
         </footer>
     );
 };
