@@ -67,17 +67,19 @@ const WorkCard = forwardRef(({ work, isMobile, index }, ref) => {
 
     return (
         <div ref={cardRef} className="work-card">
-            <div ref={buttonContainerRef} className="work-button-container">
-                <div ref={lineRef} className="work-line"></div>
-                <button ref={buttonRef} className="work-button" onClick={handleButtonClick}>
-                    <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-                        <ellipse cx="9" cy="15" rx="6" ry="10" fill="white" stroke="black" strokeWidth="2" />
-                        <ellipse cx="21" cy="15" rx="6" ry="10" fill="white" stroke="black" strokeWidth="2" />
-                        <circle cx="7" cy="15" r="4" fill="black" />
-                        <circle cx="19" cy="15" r="4" fill="black" />
-                    </svg>
-                </button>
-            </div>
+            {!isMobile && (
+                <div ref={buttonContainerRef} className="work-button-container">
+                    <div ref={lineRef} className="work-line"></div>
+                    <button ref={buttonRef} className="work-button" onClick={handleButtonClick}>
+                        <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="9" cy="15" rx="6" ry="10" fill="white" stroke="black" strokeWidth="2" />
+                            <ellipse cx="21" cy="15" rx="6" ry="10" fill="white" stroke="black" strokeWidth="2" />
+                            <circle cx="7" cy="15" r="4" fill="black" />
+                            <circle cx="19" cy="15" r="4" fill="black" />
+                        </svg>
+                    </button>
+                </div>
+            )}
             <div className="work-image">
                 <img src={work.image} alt={work.title} />
             </div>

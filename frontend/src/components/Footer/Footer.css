@@ -1,0 +1,21 @@
+.footer {
+    background-color: #000000;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 20px;
+    color: #666;
+}
+
+.footer-home {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .footer-home {
+        position: static;
+        width: 100%;
+    }
+
+}

@@ -1,16 +1,19 @@
 [
     {
         "id": 1,
-        "slug":"proj1",
-        "title": "北邮人论坛",
+        "template": "byr",
+        "slug": "byrbbsnext",
+        "title": "北邮人论坛Next",
         "image": "/works/previews/1.jpg",
-        "detailsImage": ["/works/details/1/1.jpg"],
+        "description": "“北邮人共同的精神原乡 对一代又一代的北邮人而言 既是逗号 也是起点”\n建站于2003年9月26日，它是北邮人的温馨家园，支持网页和 App 访问。超 90% 的同学使用北邮人论坛获取信息。\n设计理念：轻松、低负担、专注内容\n",
+        "detailsImage": ["/works/details/1/3.png", "/works/details/1/4.png", "/works/details/1/1.png", "/works/details/1/2.png"],
         "category": "UI/UX",
         "year": "2024"
     },
     {
         "id": 2,
-        "slug":"proj2",
+        "template": "normal",
+        "slug": "proj2",
         "title": "城市夜景",
         "image": "/works/previews/2.jpg",
         "category": "城市",
@@ -18,7 +21,8 @@
     },
     {
         "id": 3,
-        "slug":"proj3",
+        "template": "normal",
+        "slug": "proj3",
         "title": "抽象艺术",
         "image": "/works/previews/3.jpg",
         "category": "抽象",
@@ -26,7 +30,8 @@
     },
     {
         "id": 4,
-        "slug":"bupt70th",
+        "template": "normal",
+        "slug": "bupt70th",
         "title": "北邮七十周年校庆",
         "image": "/works/previews/4.jpg",
         "detailsImage": ["/works/details/4/1.jpg", "/works/details/4/2.jpg", "/works/details/4/3.jpg", "/works/details/4/4.jpg"],
@@ -35,7 +40,8 @@
     },
     {
         "id": 5,
-        "slug":"proj5",
+        "template": "normal",
+        "slug": "proj5",
         "title": "静物摄影",
         "image": "/works/previews/5.jpg",
         "category": "摄影",
@@ -43,7 +49,8 @@
     },
     {
         "id": 6,
-        "slug":"proj6",
+        "template": "normal",
+        "slug": "proj6",
         "title": "数字艺术",
         "image": "/works/previews/6.jpg",
         "category": "数字艺术",
@@ -51,15 +58,23 @@
     },
     {
         "id": 7,
-        "slug":"proj7",
-        "title": "山间日出",
+        "template": "normal",
+        "slug": "rhymoss",
+        "title": "Rhymoss",
         "image": "/works/previews/7.jpg",
-        "category": "风景",
-        "year": "2023-10-15"
+        "description": "AI同人文搜所网站logo设计。圈内作品代称为“粮”，吃粮即为阅读欣赏作品。\n设计中将端着书看书与一碗饭的形状合二为一，传达出“吃粮”的概念。\n设计意向：一碗米饭、小女孩、阅读吃粮\n",
+        "detailsImage":
+        ["/works/details/7/1.png",
+        "/works/details/7/2.gif",
+        "/works/details/7/3.png",
+        "/works/details/7/4.png"],
+        "category": "logo",
+        "year": "2025-2"
     },
     {
         "id": 8,
-        "slug":"proj8",
+        "template": "normal",
+        "slug": "proj8",
         "title": "城市夜景",
         "image": "/works/previews/8.jpg",
         "category": "城市",
@@ -67,7 +82,8 @@
     },
     {
         "id": 9,
-        "slug":"proj9",
+        "template": "normal",
+        "slug": "proj9",
         "title": "抽象艺术",
         "image": "/works/previews/9.jpg",
         "category": "抽象",
@@ -75,7 +91,8 @@
     },
     {
         "id": 10,
-        "slug":"proj10",
+        "template": "normal",
+        "slug": "proj10",
         "title": "海边日落",
         "image": "/works/previews/10.jpg",
         "category": "自然",
@@ -83,7 +100,8 @@
     },
     {
         "id": 11,
-        "slug":"proj11",
+        "template": "normal",
+        "slug": "proj11",
         "title": "静物摄影",
         "image": "/works/previews/11.jpg",
         "category": "摄影",
@@ -91,7 +109,8 @@
     },
     {
         "id": 12,
-        "slug":"proj12",
+        "template": "normal",
+        "slug": "proj12",
         "title": "数字艺术",
         "image": "/works/previews/12.jpg",
         "category": "数字艺术",

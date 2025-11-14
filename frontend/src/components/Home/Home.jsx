@@ -101,8 +101,8 @@ const Home = () => {
 
                 // 边界检测
                 data.forEach((c) => {
-                    c.x = Math.max(0, Math.min(c.x, containerRect.width - c.w));
-                    c.y = Math.max(0, Math.min(c.y, containerRect.height - c.h));
+                    c.x = gsap.utils.clamp(0, containerRect.width - c.w, c.x);
+                    c.y = gsap.utils.clamp(0, containerRect.height - c.h, c.y);
                 });
 
                 // 应用动画
@@ -306,21 +306,33 @@ const Home = () => {
 
         const cards = cardRefs.current.filter((ref) => ref !== null);
         cards.forEach((card) => {
+            // 鼠标悬浮事件
             if (card._onEnter) {
                 card.removeEventListener("mouseenter", card._onEnter);
-                card.removeEventListener("mouseleave", card._onLeave);
                 delete card._onEnter;
+            }
+            if (card._onLeave) {
+                card.removeEventListener("mouseleave", card._onLeave);
                 delete card._onLeave;
             }
-            if (card._onButtonEnter) {
-                const button = card.querySelector(".work-button");
-                button.removeEventListener("mouseenter", card._onButtonEnter);
-                button.removeEventListener("mouseleave", card._onButtonLeave);
-                delete card._onButtonEnter;
-                delete card._onButtonLeave;
+
+            // 按钮事件（可能不存在）
+            const button = card.querySelector(".work-button");
+            if (button) {
+                if (card._onButtonEnter) {
+                    button.removeEventListener("mouseenter", card._onButtonEnter);
+                    delete card._onButtonEnter;
+                }
+                if (card._onButtonLeave) {
+                    button.removeEventListener("mouseleave", card._onButtonLeave);
+                    delete card._onButtonLeave;
+                }
             }
-            card.style.transform = "";
+
+            // 清空 transform 样式
+            gsap.set(card, { clearProps: "all" });
         });
+
         gsap.killTweensOf(".work-card");
     };
 
@@ -338,9 +350,40 @@ const Home = () => {
                 ease: "power2.out",
             }
         );
+        cards.forEach((card) => {
+            const onEnter = () => {
+                gsap.to(card, { scale: 0.95, zIndex: 10, duration: 0.3, ease: "power2.out" });
+            };
+            const onLeave = () => {
+                gsap.to(card, { scale: 1, zIndex: 1, duration: 0.3, ease: "power2.out" });
+            };
+            card.addEventListener("mouseenter", onEnter);
+            card.addEventListener("mouseleave", onLeave);
+
+            card._onEnter = onEnter;
+            card._onLeave = onLeave;
+        });
     };
     // 清理移动端效果
     const cleanupMobileEffects = () => {
+        const cards = document.querySelectorAll(".work-card");
+
+        // 移除 hover 监听器
+        cards.forEach((card) => {
+            if (card._onEnter) {
+                card.removeEventListener("mouseenter", card._onEnter);
+                delete card._onEnter;
+            }
+            if (card._onLeave) {
+                card.removeEventListener("mouseleave", card._onLeave);
+                delete card._onLeave;
+            }
+
+            // 重置样式
+            gsap.set(card, { clearProps: "all" });
+        });
+
+        // 清除所有 gsap 动画
         gsap.killTweensOf(".work-card");
     };
     // 根据屏幕尺寸初始化或清理效果

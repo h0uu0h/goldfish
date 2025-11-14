@@ -1,6 +1,7 @@
 // components/WorkDetail.jsx
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import StaplePhotoAlbum from "./StaplePhotoAlbum";
 import "./WorkDetail.css";
 
 const WorkDetail = () => {
@@ -23,7 +24,7 @@ const WorkDetail = () => {
                 console.error("加载作品详情失败:", error);
                 setLoading(false);
             });
-        fetch(`/works/details/${slug}.json`) // 使用 slug 获取详情
+        fetch(`/works/details/${slug}.json`); // 使用 slug 获取详情
     }, [slug]); // 依赖改为 slug
 
     if (loading) return <div className="work-detail-loading">加载中...</div>;
@@ -35,25 +36,18 @@ const WorkDetail = () => {
                 <div className="work-detail-info">
                     <h1>{work.title}</h1>
                     <div className="work-meta">
+                        <span className="work-description">{work.description}</span>
                         <span className="work-category">{work.category}</span>
                         <span className="work-date">{work.year}</span>
                     </div>
                 </div>
                 <div className="work-detail-image">
-                    {/* <img src={work.image} alt={work.title} /> */}
+                    {work.template === "byr" && <StaplePhotoAlbum centerOffsetX={-9} centerOffsetY={9} />}
                     {work.detailsImage && work.detailsImage.length > 0 ? (
-                        work.detailsImage.map((src, index) => (
-                            <img
-                                key={index}
-                                src={src}
-                                alt={`${work.title}-${index + 1}`}
-                                loading="lazy"
-                            />
-                        ))
+                        work.detailsImage.map((src, index) => <img key={index} src={src} alt={`${work.title}-${index + 1}`} loading="lazy" />)
                     ) : (
                         <div className="work-meta">暂无更多图片</div>
                     )}
-
                 </div>
             </div>
         </div>

@@ -1,0 +1,62 @@
+/* StaplePhotoAlbum.css */
+.bound-book {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 10 / 8;
+    margin: 0 auto;
+    user-select: none;
+    overflow: visible;
+    background: transparent;
+}
+
+.book-container {
+    position: absolute;
+    left: 30%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 40%;
+    /* background-color: antiquewhite; */
+}
+
+.rotation-center {
+    position: absolute;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.book-page {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-origin: calc(100% - 6px) 6px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    pointer-events: auto;
+    will-change: transform, cursor;
+}
+
+
+/* 加载状态 */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    font-size: 18px;
+    color: #666;
+}
+
+.staple-label {
+    position: absolute;
+    left: 20%;
+    top: 20%;
+    font-size: 16px;
+    font-weight: bold;
+    /* text-shadow: 1px 1px 0 black; */
+    /* background: linear-gradient(0deg, #ffffff, #ffffff00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+}

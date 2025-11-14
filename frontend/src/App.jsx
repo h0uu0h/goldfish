@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Home from "./components/Home";
 import WorkDetail from "./components/WorkDetail";
+import Footer from "./components/Footer/Footer";
 import "./App.css";
 
 function App() {
@@ -22,8 +23,9 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/work/:slug" element={<WorkDetail />} />
-                    {/* <Route path="*" element={<Home />} /> */}
+                    <Route path="*" element={<Home />} />
                 </Routes>
+                <Footer />
             </div>
         </Router>
     );
