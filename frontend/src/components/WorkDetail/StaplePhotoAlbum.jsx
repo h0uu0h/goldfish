@@ -110,9 +110,6 @@ const StapleLabel = ({ text, position, fixedPoint, onHover, onLeave }) => {
                     top: position.y,
                     cursor: "pointer",
                     zIndex: -1,
-                    fontSize: "24px",
-                    fontWeight: "bold",
-                    transform: "translate(-50%, -50%)",
                 }}>
                 {text}
             </div>

@@ -4,6 +4,8 @@
     padding: 10px 0;
     font-size: 20px;
     color: #666;
+    font-size: clamp(14px, 2vw, 20px);
+
 }
 
 .footer-home {
