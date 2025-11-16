@@ -34,7 +34,7 @@
 }
 
 .work-detail-info h1 {
-    font-size: clamp(48px, 8vw, 84px);
+    font-size: clamp(36px, 8vw, 84px);
     margin: 0;
 }
 
@@ -46,16 +46,16 @@
     font-weight: 400;
 }
 
-.work-category,
+/* .work-category,
 .work-date {
-    /* border-radius: 20px; */
-}
+    border-radius: 20px;
+} */
 
 .work-description {
     max-width: 800px;
     text-align: start;
     white-space: pre-line;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
 }
 
 .work-detail-loading,

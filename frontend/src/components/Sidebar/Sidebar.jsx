@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link, useMatch } from "react-router-dom";
+import { useMatch } from "react-router-dom";
+import MagicLink from "../common/MagicLink";
 import "./Sidebar.css";
 
 const Sidebar = () => {
@@ -39,8 +40,8 @@ const Sidebar = () => {
                 <nav className={`sidebar-nav ${isCollapsed ? "collapsed" : ""}`}>
                     {!isCollapsed && (
                         <>
-                            <div className="sidebar-title">Goldfish</div>
-                            <div className="sidebar-title">eyeye</div>
+                            <MagicLink className="sidebar-title">Goldfish</MagicLink>
+                            <MagicLink className="sidebar-title">eyeye</MagicLink>
                         </>
                     )}
                 </nav>
@@ -48,15 +49,15 @@ const Sidebar = () => {
             <div className="topbar">
                 hjq
                 <Dot />
-                <Link to="/" className="custom-link">
+                <MagicLink href="/" className="custom-link">
                     works
-                </Link>
+                </MagicLink>
                 {slug && (
                     <>
                         <Dot />
-                        <Link to={`/work/${slug}`} className="custom-link">
+                        <MagicLink href={`/work/${slug}`} className="custom-link">
                             {slug}
-                        </Link>
+                        </MagicLink>
                     </>
                 )}
             </div>

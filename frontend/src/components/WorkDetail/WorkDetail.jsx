@@ -2,6 +2,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import StaplePhotoAlbum from "./StaplePhotoAlbum";
+import MagicLink from "../common/MagicLink";
 import "./WorkDetail.css";
 
 const WorkDetail = () => {
@@ -37,6 +38,16 @@ const WorkDetail = () => {
                     <h1>{work.title}</h1>
                     <div className="work-meta">
                         <span className="work-description">{work.description}</span>
+                        <span className="work-link">
+                            {work.link && (
+                                <>
+                                    链接：{" "}
+                                    <MagicLink href={work.link} target="_blank" rel="noopener noreferrer">
+                                        {new URL(work.link).hostname}
+                                    </MagicLink>
+                                </>
+                            )}
+                        </span>
                         <span className="work-category">{work.category}</span>
                         <span className="work-date">{work.year}</span>
                     </div>
