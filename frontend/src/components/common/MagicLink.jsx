@@ -30,7 +30,7 @@ export default function MagicLink({ children, href, ...props }) {
 
             animationRef.current = gsap.fromTo(
                 chars,
-                { y: 0, rotate: 0, color: "#000" },
+                { y: 0, rotate: 0, color: "#ffffffff" },
                 {
                     keyframes: [
                         { y: -8, rotate: 8, color: "#ff0055", duration: 0.2, ease: "back.out(2)" },
@@ -75,7 +75,7 @@ export default function MagicLink({ children, href, ...props }) {
     }, [children]);
 
     return (
-        <a ref={ref} href={href} style={{ display: "inline-block", textDecoration: "none", color: "inherit", whiteSpace: "pre" }} {...props}>
+        <a ref={ref} href={href} style={{ display: "inline-block", textDecoration: "none", color: "inherit", whiteSpace: "pre-line" }} {...props}>
             {children}
         </a>
     );

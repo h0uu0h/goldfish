@@ -223,21 +223,21 @@ const StaplePhotoAlbum = ({ centerOffsetX = 0, centerOffsetY = 0, baseAngle = 10
 
     // 定义标签数据
     const labels = [
-        {
-            text: "标准化组件",
-            position: { x: "60%", y: "20%" },
-            fixedPoint: { x: "70%", y: "50%" },
-        },
-        {
-            text: "交互设计",
-            position: { x: "80%", y: "30%" },
-            fixedPoint: { x: "70%", y: "50%" },
-        },
-        {
-            text: "用户体验",
-            position: { x: "75%", y: "25%" },
-            fixedPoint: { x: "70%", y: "50%" },
-        },
+        // {
+        //     text: "标准化组件",
+        //     position: { x: "60%", y: "20%" },
+        //     fixedPoint: { x: "70%", y: "50%" },
+        // },
+        // {
+        //     text: "交互设计",
+        //     position: { x: "80%", y: "30%" },
+        //     fixedPoint: { x: "70%", y: "50%" },
+        // },
+        // {
+        //     text: "用户体验",
+        //     position: { x: "75%", y: "25%" },
+        //     fixedPoint: { x: "70%", y: "50%" },
+        // },
     ];
 
     return (

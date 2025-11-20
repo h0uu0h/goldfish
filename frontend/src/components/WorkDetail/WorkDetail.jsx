@@ -28,6 +28,11 @@ const WorkDetail = () => {
         fetch(`/works/details/${slug}.json`); // 使用 slug 获取详情
     }, [slug]); // 依赖改为 slug
 
+    // 判断文件是否为视频
+    const isVideo = (filename) => {
+        return /\.(mp4|webm|ogg|mov|avi)$/i.test(filename);
+    };
+
     if (loading) return <div className="work-detail-loading">加载中...</div>;
     if (!work) return <div className="work-detail-error">作品未找到</div>;
 
@@ -55,7 +60,18 @@ const WorkDetail = () => {
                 <div className="work-detail-image">
                     {work.template === "byr" && <StaplePhotoAlbum centerOffsetX={-9} centerOffsetY={9} />}
                     {work.detailsImage && work.detailsImage.length > 0 ? (
-                        work.detailsImage.map((src, index) => <img key={index} src={src} alt={`${work.title}-${index + 1}`} loading="lazy" />)
+                        work.detailsImage.map((src, index) =>
+                            isVideo(src) ? (
+                                <div key={index} className="video-container">
+                                    <video  controls muted preload="metadata" className="work-media">
+                                        <source src={src} type={`video/${src.split(".").pop()}`} />
+                                        您的浏览器不支持视频播放。
+                                    </video>
+                                </div>
+                            ) : (
+                                <img key={index} src={src} alt={`${work.title}-${index + 1}`} loading="lazy" className="work-media" />
+                            )
+                        )
                     ) : (
                         <div className="work-meta">暂无更多图片</div>
                     )}

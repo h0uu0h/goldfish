@@ -59,11 +59,11 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 20px;
+    padding: 20px 0px;
 }
 
 .sidebar-nav.collapsed {
-    padding-top: 0px;
+    padding: 0px;
 }
 
 .sidebar-title {

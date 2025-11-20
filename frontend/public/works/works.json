@@ -13,20 +13,14 @@
     {
         "id": 2,
         "template": "normal",
-        "slug": "proj2",
-        "title": "城市夜景",
+        "slug": "fourier",
+        "title": "FT-Player",
         "image": "/works/previews/2.jpg",
-        "category": "城市",
-        "year": "2023-09-22"
-    },
-    {
-        "id": 3,
-        "template": "normal",
-        "slug": "proj3",
-        "title": "抽象艺术",
-        "image": "/works/previews/3.jpg",
-        "category": "抽象",
-        "year": "2023-11-05"
+        "description": "VR可视化帮助理解傅里叶变换的抽象概念。\nIEEE VR 2024 3DUI contest科学计算器参赛作品，获提名奖。\n设计思路：清晰、直观、教育性\n",
+        "detailsImage": ["/works/details/2/1.png", "/works/details/2/2.png", "/works/details/2/3.gif","/works/details/2/4.gif","/works/details/2/5.gif","/works/details/2/6.mp4"],
+        "link": "https://ieeevr.org/2024/program/3dui-contest/#1012",
+        "category": "VR/AR",
+        "year": "2024-01"
     },
     {
         "id": 4,
@@ -42,22 +36,13 @@
     {
         "id": 5,
         "template": "normal",
-        "slug": "2thclassannual",
+        "slug": "2ndclassannual",
         "title": "北邮第二课堂年度总结",
         "image": "/works/previews/5.jpg",
         "description":"北邮第二课堂年度数据可视化盘点。\n设计理念：有趣、活泼、搞怪",
         "detailsImage":["/works/details/5/1.gif","/works/details/5/2.gif","/works/details/5/3.png","/works/details/5/4.png","/works/details/5/5.png"],
         "category": "UI/UX",
         "year": "2025-01"
-    },
-    {
-        "id": 6,
-        "template": "normal",
-        "slug": "proj6",
-        "title": "数字艺术",
-        "image": "/works/previews/6.jpg",
-        "category": "数字艺术",
-        "year": "2023-11-20"
     },
     {
         "id": 7,
@@ -71,24 +56,6 @@
         "year": "2025-2"
     },
     {
-        "id": 8,
-        "template": "normal",
-        "slug": "proj8",
-        "title": "城市夜景",
-        "image": "/works/previews/8.jpg",
-        "category": "城市",
-        "year": "2023-09-22"
-    },
-    {
-        "id": 9,
-        "template": "normal",
-        "slug": "proj9",
-        "title": "抽象艺术",
-        "image": "/works/previews/9.jpg",
-        "category": "抽象",
-        "year": "2023-11-05"
-    },
-    {
         "id": 10,
         "template": "normal",
         "slug": "byrteam",
@@ -96,26 +63,8 @@
         "image": "/works/previews/10.jpg",
         "description":"北邮人团队官网设计。网站用于展示项目成果及招新信息。\n设计理念：活力、亲和、简洁\n",
         "link":"https://team.byrio.work/",
-        "detailsImage":["/works/details/10/1.png","/works/details/10/2.png"],
+        "detailsImage":["/works/details/10/1.png","/works/details/10/2.png","/works/details/10/3.png"],
         "category": "UI/UX",
         "year": "2023-09"
-    },
-    {
-        "id": 11,
-        "template": "normal",
-        "slug": "proj11",
-        "title": "静物摄影",
-        "image": "/works/previews/11.jpg",
-        "category": "摄影",
-        "year": "2023-10-08"
-    },
-    {
-        "id": 12,
-        "template": "normal",
-        "slug": "proj12",
-        "title": "数字艺术",
-        "image": "/works/previews/12.jpg",
-        "category": "数字艺术",
-        "year": "2023-11-20"
     }
 ]

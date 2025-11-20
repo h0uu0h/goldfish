@@ -26,6 +26,26 @@
     height: auto;
 }
 
+/* WorkDetail.css */
+.video-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.work-media {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+video.work-media {
+    max-height: 70vh;
+    /* 限制视频最大高度 */
+}
+
 .work-detail-info {
     display: flex;
     flex-direction: column;
