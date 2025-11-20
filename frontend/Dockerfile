@@ -3,12 +3,12 @@ FROM node:18 AS builder
 WORKDIR /app
 
 # 复制依赖文件并安装依赖
-COPY package*.json ./
-RUN npm install
+# COPY package*.json ./
+# RUN npm install
 
 # 复制全部源码并构建
 COPY . .
-RUN npm run build
+# RUN npm run build
 
 # 阶段 2：使用 Nginx 托管静态资源
 FROM nginx:alpine
