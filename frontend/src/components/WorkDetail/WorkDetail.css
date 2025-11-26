@@ -92,12 +92,23 @@ video.work-media {
     color: #d32f2f;
 }
 
+
+
 @media (min-width:1200px) {
     .work-detail-image {
         width: 100%;
         display: grid;
         gap: 8px;
         grid-template-columns: repeat(2, minmax(500px, 800px));
+    }
+}
+
+@media (min-width:2000px) {
+    .work-detail-image {
+        width: 100%;
+        display: grid;
+        gap: 8px;
+        grid-template-columns: repeat(3, minmax(500px, 800px));
     }
 }
 
