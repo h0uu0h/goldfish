@@ -51,6 +51,12 @@ const Sidebar = () => {
                             <MagicLink href="/" className="sidebar-title">
                                 Goldfish
                             </MagicLink>
+                            <MagicLink href="/rockrock" className="sidebar-title">
+                                rockrock
+                            </MagicLink>
+                            <MagicLink href="/cpc" className="sidebar-title">
+                                CPC
+                            </MagicLink>
                             <MagicLink href="/about" className="sidebar-title">
                                 About
                             </MagicLink>
