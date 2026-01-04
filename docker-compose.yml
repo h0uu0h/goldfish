@@ -31,6 +31,8 @@ services:
     restart: always
     networks:
       - app-network
+    environment:
+      - DEEPSEEK_API_KEY=sk-4a69bdd7e98b44bcb40eb1d17e0d8145
 
 networks:
   app-network:
