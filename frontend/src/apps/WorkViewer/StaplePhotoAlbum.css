@@ -1,0 +1,64 @@
+/* StaplePhotoAlbum.css */
+.bound-book {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 10 / 8;
+    margin: 0 auto;
+    user-select: none;
+    overflow: visible;
+    background: transparent;
+}
+
+.book-container {
+    position: absolute;
+    inset: 0;
+}
+
+.rotation-center {
+    position: absolute;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.book-page {
+    position: absolute;
+    /*
+     * 九张原图都是 620px 宽。直接使用固有尺寸时，小窗口会把扇页两侧
+     * 裁掉。扇形在 -80deg 时的完整横向跨度约为两张纸宽，因此用容器
+     * 的 52% 作为统一纸宽，并把装订点放在横向 52% 处。
+     */
+    width: 52%;
+    height: auto;
+    right: 48%;
+    top: 2%;
+    transform-origin: calc(100% - 6px) 6px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    pointer-events: auto;
+    will-change: transform, cursor;
+}
+
+
+/* 加载状态 */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    font-size: 18px;
+    color: #666;
+}
+
+.staple-label {
+    position: absolute;
+    left: 20%;
+    top: 20%;
+    font-size: 16px;
+    font-weight: bold;
+    /* text-shadow: 1px 1px 0 black; */
+    /* background: linear-gradient(0deg, #ffffff, #ffffff00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+}

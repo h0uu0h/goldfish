@@ -1,0 +1,64 @@
+.inkpad { height: 100%; min-height: 0; position: relative; overflow: hidden; color: var(--os-ink); container-type: inline-size; }
+.inkpad-canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; background: transparent; touch-action: none; user-select: none; outline: none; cursor: crosshair; }
+.inkpad-canvas:focus-visible { outline: 1px solid #527c9255; outline-offset: -1px; }
+.inkpad-tool-select { cursor: default; }
+.inkpad-tool-select [data-object-id] { cursor: move; }
+.inkpad-tool-pan { cursor: grab; }
+.inkpad-tool-pan:active { cursor: grabbing; }
+.inkpad-tool-eraser { cursor: cell; }
+.inkpad-float { position: absolute; display: flex; align-items: center; gap: var(--os-space-control-x); background-color: rgba(var(--paper-rgb), var(--paper-alpha)); background-image: var(--paper-formation-img); border: 0; border-radius: var(--os-control-radius); padding: var(--os-space-row-y) var(--os-space-row-x); box-shadow: 0 1px 2px var(--paper-edge-shade), var(--paper-shadow-rest), inset 0 1px var(--paper-edge-light); }
+.inkpad-float button { white-space: nowrap; }
+.inkpad-documentbar > .os-select { width: 180px; min-width: 0; text-overflow: ellipsis; }
+.inkpad-documentbar > input { min-width: 40px; width: 150px; font-weight: 600; background: transparent; border-color: transparent; }
+.inkpad-export { display: flex; align-items: center; gap: var(--os-space-control-x); margin-left: auto; padding-left: 8px; border-left: 1px solid #5553; }
+.inkpad-export > .os-select { width: 76px; }
+.inkpad-toolbar { bottom: calc(34px + var(--os-space-control-y)); left: 50%; transform: translateX(-50%); width: max-content; max-width: calc(100% - 24px); flex-wrap: wrap; justify-content: center; gap: var(--os-space-row-y) var(--os-space-row-x); padding: var(--os-space-row-y) var(--os-space-row-x); }
+.inkpad-tools { display: flex; gap: var(--os-space-control-x); }
+.inkpad-divider { width: 1px; height: var(--os-control-h); background: var(--os-line-soft); margin: 0 var(--os-space-control-x); }
+.inkpad-colors { display: flex; align-items: center; gap: var(--os-space-row-x); padding: 0 var(--os-space-control-x); }
+.inkpad-color { width: 19px; height: 19px; min-width: 0; padding: 0; border-radius: 50%; border: 3px solid #faf7ef; background: var(--ink); box-shadow: 0 0 0 1px #5553; cursor: pointer; }
+.inkpad-color[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--ink); }
+.inkpad-pen-options > .os-select { width: 64px; flex: 0 0 64px; }
+.inkpad-selection { visibility: hidden; max-width: calc(100% - 2 * var(--os-space-group-x)); box-sizing: border-box; font-size: var(--os-font-sm); gap: var(--os-space-control-x); z-index: 1; }
+.inkpad-selection > span { padding: 0 var(--os-space-control-x); white-space: nowrap; }
+.inkpad-zoom { position: absolute; bottom: 0; right: 12px; display: flex; align-items: center; gap: var(--os-space-control-x); }
+.inkpad-status { position: absolute; bottom: 17px; left: 16px; display: flex; align-items: center; gap: 6px; max-width: calc(100% - 230px); font-size: 11px; pointer-events: none; }
+.inkpad-status button { pointer-events: auto; }
+.inkpad-error { color: #a33c2f; background: #faf7ef; }
+.inkpad-empty { position: absolute; inset: 32% 20px auto; text-align: center; pointer-events: none; opacity: .5; }
+.inkpad-empty span { display: block; font-size: 19px; font-weight: 400; letter-spacing: .08em; margin-bottom: 14px; }
+.inkpad-empty small { font-size: 12px; line-height: 1.8; }
+.inkpad-note-editor { box-sizing: border-box; width: 100%; height: 100%; padding: 12px 18px; border: 1px solid #527c92; outline: none; resize: none; font: 16px/24px system-ui, sans-serif; color: #34372f; }
+.inkpad-loading { padding: 24px; }
+@container (max-width: 640px) {
+    .inkpad-toolbar { bottom: calc(34px + var(--os-space-control-y)); }
+    .inkpad-status { bottom: 16px; max-width: calc(100% - 195px); }
+    .inkpad-zoom { right: 8px; }
+}
+@container (max-width: 420px) {
+    .inkpad-status { font-size: 10px; }
+    .inkpad-empty { top: 28%; }
+}
+
+/* Compact drawing controls retain the system paper material. */
+.inkpad-tools .inkpad-icon-button[aria-pressed="true"] { background: var(--os-accent); color: var(--os-on-accent); border-color: var(--os-accent); }
+.inkpad-tools .inkpad-icon-button[aria-pressed="true"]:hover:not(:disabled) { background: var(--os-accent-hover); }
+.inkpad-toolbar { border-radius: var(--os-control-radius); gap: var(--os-space-row-x); }
+.inkpad-tools { flex-shrink: 0; }
+.inkpad-export .os-button { display: inline-flex; align-items: center; gap: 6px; }
+.inkpad-pen-options > .os-select { min-height: var(--os-control-h); }
+.inkpad-documentbar > .os-select { flex-shrink: 0; }
+@container (max-width: 640px) {
+    .inkpad-toolbar { gap: var(--os-space-row-y) var(--os-space-row-x); }
+    .inkpad-toolbar > .inkpad-divider { display: none; }
+}
+
+.inkpad-pen-options { display: flex; align-items: center; gap: var(--os-space-control-x); }
+.inkpad-documentbar .os-select, .inkpad-documentbar .os-input, .inkpad-pen-options .os-select, .inkpad-zoom > .os-button { background: transparent; border-color: transparent; box-shadow: none; border-radius: var(--os-control-radius); }
+.inkpad-documentbar > .os-select { flex-shrink: 1; }
+.inkpad-documentbar > input { width: 180px; }
+.inkpad-status { color: var(--os-muted); }
+
+.os-window-toolbar.inkpad-documentbar { position: static; background: none; border: 0; box-shadow: none; border-radius: 0; }
+.os-window-toolbar.inkpad-documentbar > .os-select, .os-window-toolbar.inkpad-documentbar > input { width: 150px; flex-shrink: 0; }
+.os-window-toolbar .inkpad-export { margin-left: auto; }

@@ -1,0 +1,32 @@
+.os-settings { position: absolute; inset: 0; display: flex; flex-direction: column; font-size: var(--os-font-size); }
+.os-settings-content { min-height: 0; flex: 1; padding: var(--os-space-panel-y) var(--os-space-panel-x); container-type: inline-size; }
+.os-settings-group { min-width: 0; margin: 0 0 var(--os-space-group-y); padding: 0; border: 0; }
+.os-settings-group legend { margin-bottom: var(--os-space-row-y); padding: 0; font-size: var(--os-font-sm); font-weight: 500; color: var(--os-muted); }
+.os-settings-group > div { --os-settings-radius: var(--os-radius); border: var(--os-border-width) solid var(--os-line-soft); border-radius: var(--os-settings-radius); background: rgba(var(--paper-rgb), .16); }
+.os-settings-row { display: grid; grid-template-columns: minmax(90px, 1fr) minmax(0, 1.4fr); align-items: center; column-gap: var(--os-space-group-x); row-gap: var(--os-space-group-y); padding: var(--os-space-row-y) var(--os-space-row-x); }
+.os-settings-row + .os-settings-row { border-top: 1px solid var(--os-line-soft); }
+.os-settings-row > label { overflow-wrap: anywhere; }
+.os-settings-row[data-label-align="start"] > label { align-self: start; }
+.os-settings-value { min-width: 0; }
+.os-settings-value .os-select {
+    width: fit-content;
+    max-width: 100%;
+    margin-left: auto;
+    display: flex;
+    justify-content: flex-end;
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+    color: var(--os-ink);
+}
+.os-settings-value .os-select:hover:not(:disabled),
+.os-settings-value .os-select[aria-expanded="true"] {
+    border-color: transparent;
+    background: color-mix(in srgb, var(--os-ink) 8%, transparent);
+}
+.os-settings-value .os-select:hover:not(:disabled) .os-select-arrows,
+.os-settings-value .os-select[aria-expanded="true"] .os-select-arrows { background: transparent; }
+.os-settings-footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--os-space-row-y) var(--os-space-row-x); padding: var(--os-space-row-y) var(--os-space-panel-x); border-top: 1px solid var(--os-line-soft); }
+.os-settings-footer > span { font-size: var(--os-font-sm); color: var(--os-muted); }
+.os-settings-actions { display: flex; flex-wrap: wrap; gap: var(--os-space-row-y) var(--os-space-row-x); margin-left: auto; }
+@container (max-width: 340px) { .os-settings-row { grid-template-columns: 1fr; gap: var(--os-space-row-y) var(--os-space-row-x); } }

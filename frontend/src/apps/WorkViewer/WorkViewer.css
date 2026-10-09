@@ -1,0 +1,109 @@
+.work-viewer {
+    position: absolute;
+    inset: 0;
+    container-type: inline-size;
+    user-select: text;
+}
+
+/* 旧版详情页的内容结构；原来的顶部/左侧 50px 用于网站导航，窗口内不再保留。 */
+.work-detail-content {
+    padding: 8px 8px 0;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.work-detail-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.work-detail-info h1 {
+    margin: 0;
+    font-size: clamp(36px, 8cqi, 84px);
+    line-height: 1.2;
+}
+
+.work-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.work-description {
+    max-width: 800px;
+    text-align: start;
+    white-space: pre-line;
+}
+
+.work-link a {
+    border-bottom: 1px solid currentColor;
+}
+
+.work-detail-image {
+    width: 100%;
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+}
+
+.work-detail-image > img {
+    width: 100%;
+    height: auto;
+}
+
+.video-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.work-media {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+video.work-media {
+    max-height: 70vh;
+}
+
+/* 骑马钉相册原为深底设计；窗口版继续保留该作品自己的底色。 */
+.work-viewer-album {
+    background: #0d0d0d;
+    overflow: hidden;
+}
+
+.work-viewer-empty {
+    display: grid;
+    place-items: center;
+    min-height: 50%;
+    padding: 48px 0;
+    color: rgba(13, 13, 13, 0.4);
+}
+
+/* 旧版断点改为按作品窗口宽度判断，多个窗口并排时不会误进宽屏布局。 */
+@container (min-width: 1200px) {
+    .work-detail-image {
+        grid-template-columns: repeat(2, minmax(500px, 800px));
+    }
+}
+
+@container (min-width: 2000px) {
+    .work-detail-image {
+        grid-template-columns: repeat(3, minmax(500px, 800px));
+    }
+}
+
+@container (max-width: 768px) {
+    .work-detail-image {
+        grid-template-columns: 1fr;
+    }
+}

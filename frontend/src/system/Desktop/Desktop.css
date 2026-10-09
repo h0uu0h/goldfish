@@ -1,0 +1,17 @@
+.os-desktop {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+}
+
+/* 图标自上而下、按列排布，从右上角开始（macOS 式），溢出时向左扩展新列 */
+.os-desktop-icons {
+    position: absolute;
+    top: calc(var(--os-menubar-h) + 18px);
+    right: 14px;
+    bottom: calc(var(--os-dock-h) + 32px);
+    display: flex;
+    flex-flow: column wrap-reverse;
+    align-content: flex-start;
+    gap: 6px;
+}

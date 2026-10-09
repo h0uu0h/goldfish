@@ -1,0 +1,158 @@
+/* ============================================================
+   Goldfish OS — 设计 token 与全局基底
+   默认：冷灰色、紧凑排版、圆角硫酸纸与 Haiku 图标。
+   ============================================================ */
+
+:root {
+    --os-icon-size: 16px;
+    --os-icon-button-size: max(26px, var(--os-control-h));
+    --os-accent: #70777a;
+    --os-accent-text: #414749;
+    --os-accent-hover: #5f6568;
+    --os-accent-soft: #f6f7f8;
+    --os-on-accent: #ffffff;
+    --os-muted: #4b4f4e;
+    --os-font-size: 12px;
+    --os-font-sm: 10px;
+    --os-font-lg: 20px;
+    --os-space-panel-x: 8px;
+    --os-space-group-x: 6px;
+    --os-space-row-x: 6px;
+    --os-space-control-x: 4px;
+    --os-space-panel-y: 8px;
+    --os-space-group-y: 4px;
+    --os-space-row-y: 2px;
+    --os-space-control-y: 1px;
+    --os-space-panel: 8px;
+    --os-space-group: 4px;
+    --os-space-row: 2px;
+    --os-space-control: 1px;
+    --os-space: 1px;
+    --os-space-2: 2px;
+    --os-space-3: 4px;
+    --os-space-4: 8px;
+    --os-space-6: 12px;
+    --os-control-radius: 12px;
+    --os-border-width: 1px;
+    --os-focus-width: 2px;
+    --os-focus-offset: 0px;
+    --os-segment-padding: 2px;
+    --os-control-h: 24px;
+    /* 色板 */
+    --os-ink: #1e2222;
+    --os-paper: #fdfdfe;
+    --os-paper-dim: #f6f7f8;
+    --os-line: rgba(30, 34, 34, 0.16);
+    --os-line-soft: rgba(30, 34, 34, 0.10400000000000001);
+    --os-white: #ffffff;
+    --os-white-soft: rgba(255, 255, 255, 0.68);
+
+    /* 字体：SF Pro（英文）+ 苹方（中文），非苹果平台回退到系统字体 */
+    --os-font: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", sans-serif;
+
+    /* 窗口 */
+    --os-titlebar-h: 28px;
+    --os-radius: 12px;
+    --os-border: 1px solid var(--os-line);
+
+    /* ---- 纸面材质（硫酸纸）----
+       整套窗口的材质由这几个变量驱动；
+       开发版桌面上的「材质实验室」应用可实时调整它们。 */
+    --paper-rgb: 255, 254, 253;          /* 纸的底色（rgb 三元组，配合 alpha 使用） */
+    --paper-alpha: 0.63;                /* 纸的不透明度：越低越透 */
+    --paper-blur: 14px;                  /* 透过纸看到的背景模糊量 */
+    --paper-saturate: 0.7;              /* 硫酸纸会轻微压低背后色彩 */
+    --paper-formation-img: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'620'%20height%3D'460'%3E%0A%20%20%20%20%20%20%20%20%3Cfilter%20id%3D'f'%20x%3D'-20%25'%20y%3D'-20%25'%20width%3D'140%25'%20height%3D'140%25'%3E%3CfeTurbulence%20type%3D'fractalNoise'%20baseFrequency%3D'.007%20.011'%20numOctaves%3D'4'%20seed%3D'705'%20stitchTiles%3D'stitch'%2F%3E%3CfeGaussianBlur%20stdDeviation%3D'3'%2F%3E%3CfeColorMatrix%20type%3D'matrix'%20values%3D'0%200%200%200%20.42%200%200%200%200%20.43%200%200%200%200%20.40%200%200%200%200.185%200'%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D'620'%20height%3D'460'%20filter%3D'url(%23f)'%2F%3E%3C%2Fsvg%3E");         /* 低频纸浆分布 / 透光不均 */
+    --paper-shader-contrast: 0.48;
+    --paper-shader-roughness: 0.3;
+    --paper-shader-fiber: 0.38;
+    --paper-shader-fiber-size: 0.3;
+    --paper-shader-drops: 0.025;
+    --paper-shader-fade: 0.28;
+    --paper-edge-color: rgba(54, 55, 50, 0.026);
+    --paper-edge-soft: rgba(54, 55, 50, 0.013);
+    --paper-shadow: 0 1px 2px rgba(38, 32, 24, 0.066), 0 8px 18px -6px rgba(38, 32, 24, 0.084), 0 24px 56px -12px rgba(38, 32, 24, 0.12);
+    --paper-shadow-rest: 0 1px 2px rgba(38, 32, 24, 0.042), 0 8px 24px -8px rgba(38, 32, 24, 0.078);
+    --paper-edge-light: rgba(255, 255, 255, 0.250);
+    --paper-edge-shade: rgba(54, 50, 43, 0.057);
+
+    /* Dock */
+    --os-dock-h: 58px;
+    --os-menubar-h: 28px;
+    --os-dock-bg: rgba(10, 10, 10, 0.6);
+    --os-dock-line: rgba(255, 255, 255, 0.24);
+
+    /* 层级 */
+    --z-desktop: 0;
+    --z-windows: 100;
+    --z-dock: 5000;
+    --z-menu: 9000;
+
+    /* 动效 */
+    --os-ease: cubic-bezier(0.2, 0.9, 0.25, 1);
+
+    color-scheme: light;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* 无页面滚动，滚动只发生在窗口内部 */
+}
+
+body {
+    font-family: var(--os-font);
+    font-size: var(--os-font-size);
+    line-height: 1.6;
+    color: var(--os-ink);
+    background: #000;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+::selection {
+    background: var(--os-accent);
+    color: var(--os-on-accent);
+}
+
+a {
+    color: inherit;
+}
+
+/* 窗口内容区的细滚动条 */
+.os-scroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--os-line-soft) transparent;
+}
+
+.os-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+
+.os-scroll::-webkit-scrollbar-thumb {
+    background: var(--os-line-soft);
+}
+
+.os-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* 系统级次要标签 */
+.os-label {
+    font-size: var(--os-font-sm);
+    font-weight: 500;
+}

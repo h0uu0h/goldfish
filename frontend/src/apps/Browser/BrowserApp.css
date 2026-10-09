@@ -1,0 +1,54 @@
+.browser-app { height: 100%; display: flex; flex-direction: column; min-width: 0; }
+.browser-toolbar { display: flex; align-items: center; flex: none; min-width: 0; gap: 5px; padding: 4px 8px; }
+.browser-toolbar > .browser-address { flex: 1 1 100px; min-width: 70px; display: flex; align-items: center; gap: 4px; padding: 3px 3px 3px 8px; background: rgba(255,255,255,.45); border: 1px solid var(--os-line-soft); border-radius: var(--os-control-radius); }
+.browser-address > svg { flex: none; width: var(--os-icon-size); height: var(--os-icon-size); pointer-events: none; }
+.browser-address .os-input { min-width: 0; width: 100%; border: 0; background: transparent; box-shadow: none; }
+.browser-bookmarks { display: flex; align-items: center; gap: 8px; padding: 2px 8px; min-height: 24px; box-sizing: border-box; overflow-x: auto; flex-shrink: 0; }
+.browser-bookmarks > span { font-size: var(--os-font-sm); color: var(--os-muted); white-space: nowrap; }
+.browser-bookmarks button { min-height: 20px; padding: 0 6px; display: flex; align-items: center; gap: 5px; max-width: 220px; flex-shrink: 0; border: 0; background: transparent; color: var(--os-ink); cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.browser-bookmark-editor { display: flex; gap: 8px; padding: 10px 14px; }
+.browser-bookmark-editor input { flex: 1; min-width: 0; }
+.browser-notice { padding: 8px 14px; color: var(--os-accent-text); }
+.browser-page { position: relative; flex: 1; min-height: 0; }
+.browser-start { height: 100%; padding: clamp(24px, 6vw, 64px); box-sizing: border-box; max-width: 850px; margin: auto; }
+.browser-start > svg { color: var(--os-muted); }
+.browser-start h1 { font-size: 28px; margin: 14px 0 8px; font-weight: 500; }
+.browser-start p { color: var(--os-muted); }
+.browser-start h2 { margin: 36px 0 16px; font-size: 13px; font-weight: 500; }
+.browser-start h2 span { margin-left: 8px; opacity: .5; }
+.browser-favorites { display: grid; grid-template-columns: repeat(auto-fill,minmax(160px,1fr)); gap: 12px; }
+.browser-favorites button { display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: 10px; padding: 18px; border: 1px solid var(--os-line-soft); border-radius: 12px; background: rgba(255,255,255,.25); color: var(--os-ink); cursor: pointer; min-width: 0; }
+.browser-favorites button:hover { background: rgba(255,255,255,.55); }
+.browser-favorites img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+.browser-favorites strong { font-weight: 500; }
+.browser-favorites span { font-size: 11px; color: var(--os-muted); overflow-wrap: anywhere; }
+.browser-external { position: relative; height: 100%; display: flex; flex-direction: column; background: transparent; }
+.browser-external iframe { width: 100%; flex: 1; min-height: 0; border: 0; }
+
+.browser-session, .browser-tab-panel { height: 100%; min-height: 0; }
+.browser-tab-panel[hidden] { display: none; }
+.os-window-toolbar.browser-tab-strip { width: 100%; min-width: 0; gap: 6px; padding: 2px 0; }
+.browser-tab-strip > .browser-tabs { display: flex; flex: 0 1 auto; min-width: 0; overflow-x: auto; scrollbar-width: none; gap: 6px; }
+.browser-tabs::-webkit-scrollbar { display: none; }
+.browser-tab { display: flex; align-items: center; flex: 0 1 180px; min-width: 100px; height: 22px; border-radius: 999px; background: transparent; }
+.browser-tab.is-active { background: rgba(255,255,255,.45); }
+.browser-tab > button[role="tab"] { display: flex; align-items: center; gap: 6px; flex: 1; min-width: 0; height: 100%; padding: 0 10px; border: 0; border-radius: 999px; background: transparent; color: var(--os-ink); font: inherit; font-size: max(11px, var(--os-font-sm)); cursor: pointer; }
+.browser-tab > button[role="tab"] svg { flex: none; }
+.browser-tab > button[role="tab"] span { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.browser-tab .os-icon-button, .browser-tab-strip > .os-icon-button { --os-icon-button-size: 20px; --os-icon-size: 12px; }
+.browser-tab .os-icon-button { margin-right: 3px; }
+
+/* Focus stays within the address surface, without an accent-colored stripe. */
+.browser-address .os-input:focus-visible { outline: none; background: transparent; }
+.browser-toolbar > .browser-address:focus-within { background: rgba(255,255,255,.62); }
+.browser-tab > button[role="tab"]:focus-visible { outline: 1px solid var(--os-muted); outline-offset: -2px; }
+
+.browser-loading { position: absolute; top: 0; inset-inline: 0; padding: 8px 14px; background: var(--os-paper); color: var(--os-muted); pointer-events: none; }
+.browser-page-message { position: absolute; inset: 0; display: grid; place-items: center; padding: clamp(16px, 5vw, 48px); background: var(--os-paper); box-sizing: border-box; }
+.browser-page-message > div { width: 100%; max-width: 440px; }
+.browser-page-message h1 { margin: 16px 0 8px; font-size: var(--os-font-lg); font-weight: 500; }
+.browser-page-message p { color: var(--os-muted); line-height: 1.7; }
+.browser-page-message .browser-page-host { color: var(--os-ink); overflow-wrap: anywhere; }
+.browser-page-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 24px; }
+.browser-open-page { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; }
+.browser-page-help { position: absolute; bottom: 12px; right: 12px; }

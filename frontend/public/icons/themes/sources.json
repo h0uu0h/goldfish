@@ -1,0 +1,137 @@
+{
+  "haiku": {
+    "works": {
+      "source": "haiku/svg/Folder_generic.svg",
+      "file": "works.svg"
+    },
+    "workviewer": {
+      "source": "haiku/svg/File_Image_1.svg",
+      "file": "workviewer.svg"
+    },
+    "about": {
+      "source": "haiku/svg/Prefs_Screen.svg",
+      "file": "about.svg"
+    },
+    "wallpaper": {
+      "source": "haiku/svg/Prefs_Backgrounds.svg",
+      "file": "wallpaper.svg"
+    },
+    "paperlab": {
+      "source": "haiku/svg/App_Icon-O-Matic.svg",
+      "file": "paperlab.svg"
+    },
+    "rockrock": {
+      "source": "haiku/svg/File_Audio.svg",
+      "file": "rockrock.svg"
+    },
+    "cpc": {
+      "source": "haiku/svg/File_Text.svg",
+      "file": "cpc.svg"
+    },
+    "revision": "ccf434a0cf31aae47cc8aac91934651619c1b9b2",
+    "trash": {
+      "source": "haiku/svg/Trash_Empty.svg",
+      "file": "trash.svg"
+    },
+    "inkpad": {
+      "source": "haiku/svg/App_Wonderbrush.svg",
+      "file": "inkpad.svg"
+    },
+    "browser": {
+      "source": "haiku/svg/Misc_Earth.svg",
+      "file": "browser.svg"
+    }
+  },
+  "tango": {
+    "works": {
+      "source": "tango-icon-theme-0.8.90/scalable/places/folder.svg",
+      "file": "works.svg"
+    },
+    "workviewer": {
+      "source": "tango-icon-theme-0.8.90/scalable/mimetypes/image-x-generic.svg",
+      "file": "workviewer.svg"
+    },
+    "about": {
+      "source": "tango-icon-theme-0.8.90/scalable/devices/computer.svg",
+      "file": "about.svg"
+    },
+    "wallpaper": {
+      "source": "tango-icon-theme-0.8.90/scalable/apps/preferences-desktop-wallpaper.svg",
+      "file": "wallpaper.svg"
+    },
+    "paperlab": {
+      "source": "tango-icon-theme-0.8.90/scalable/apps/preferences-desktop-theme.svg",
+      "file": "paperlab.svg"
+    },
+    "rockrock": {
+      "source": "tango-icon-theme-0.8.90/scalable/mimetypes/audio-x-generic.svg",
+      "file": "rockrock.svg"
+    },
+    "cpc": {
+      "source": "tango-icon-theme-0.8.90/scalable/mimetypes/text-x-generic.svg",
+      "file": "cpc.svg"
+    },
+    "trash": {
+      "source": "tango-icon-theme-0.8.90/scalable/places/user-trash.svg",
+      "file": "trash.svg"
+    },
+    "inkpad": {
+      "source": "tango-icon-theme-0.8.90/scalable/mimetypes/x-office-drawing.svg",
+      "file": "inkpad.svg"
+    },
+    "browser": {
+      "source": "tango-icon-theme-0.8.90/scalable/apps/internet-web-browser.svg",
+      "file": "browser.svg"
+    }
+  },
+  "chicago95": {
+    "works": {
+      "source": "chicago/Icons/Chicago95/places/32/folder.png",
+      "file": "works.png"
+    },
+    "workviewer": {
+      "source": "chicago/Icons/Chicago95/mimes/32/image.png",
+      "file": "workviewer.png"
+    },
+    "about": {
+      "source": "chicago/Icons/Chicago95/devices/32/computer.png",
+      "file": "about.png"
+    },
+    "wallpaper": {
+      "source": "chicago/Icons/Chicago95/apps/32/preferences-desktop-wallpaper.png",
+      "file": "wallpaper.png"
+    },
+    "paperlab": {
+      "source": "chicago/Icons/Chicago95/categories/32/preferences-desktop.png",
+      "file": "paperlab.png"
+    },
+    "rockrock": {
+      "source": "chicago/Icons/Chicago95/mimes/32/audio-x-generic.png",
+      "file": "rockrock.png"
+    },
+    "cpc": {
+      "source": "chicago/Icons/Chicago95/mimes/32/text-x-generic.png",
+      "file": "cpc.png"
+    },
+    "revision": "e89583c9a0fbc5022d099fbe6f12132a756027a8",
+    "trash": {
+      "source": "chicago/Icons/Chicago95/places/32/user-trash.png",
+      "file": "trash.png"
+    },
+    "inkpad": {
+      "source": "chicago/Icons/Chicago95/mimes/32/x-office-drawing.png",
+      "file": "inkpad.png"
+    },
+    "browser": {
+      "source": "chicago/Icons/Chicago95/apps/32/web-browser.png",
+      "file": "browser.png"
+    }
+  },
+  "original": {
+    "inkpad": {
+      "source": "tango-icon-theme-0.8.90/scalable/mimetypes/x-office-drawing.svg",
+      "file": "../inkpad.svg",
+      "theme": "Tango 0.8.90"
+    }
+  }
+}

@@ -1,0 +1,90 @@
+.wp-picker {
+    position: absolute;
+    inset: 0;
+}
+
+.wp-picker-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--os-space-group-y) var(--os-space-group-x);
+    padding: var(--os-space-row-y) var(--os-space-panel-x);
+    background: rgba(var(--paper-rgb), 0.65); /* sticky 工具栏要遮住滚过的内容，但仍保持纸感 */
+    border-bottom: 1px solid var(--os-line-soft);
+    color: var(--os-muted);
+}
+
+.wp-picker-controls, .wp-picker-options { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; }
+.wp-picker-controls .os-segmented { margin-right: auto; }
+.wp-picker-card { position: relative; min-width: 0; }
+.wp-picker-favorite { position: absolute; top: 8px; right: 8px; display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid rgba(255,255,255,.5); border-radius: 50%; background: rgba(10,10,10,.55); color: white; cursor: pointer; }
+.wp-picker-favorite.is-favorite { color: #ffe299; }
+.wp-picker-favorite:hover { background: rgba(10,10,10,.8); }
+.wp-picker-favorite:focus-visible { outline: 2px solid white; outline-offset: 2px; }
+
+.wp-picker-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 1px;
+    background: transparent;
+}
+
+.wp-picker-item {
+    position: relative;
+    display: block;
+    padding: 0;
+    border: none;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--os-paper-dim);
+    cursor: pointer;
+}
+
+.wp-picker-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.wp-picker-item.active::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 3px solid var(--os-accent);
+    outline: 2px solid #fff;
+    outline-offset: -5px;
+}
+
+.wp-picker-credit {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 3px 8px;
+    background: rgba(10, 10, 10, 0.55);
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.wp-picker-card:hover .wp-picker-credit,
+.wp-picker-card:focus-within .wp-picker-credit {
+    opacity: 1;
+}
+
+.wp-picker-credit a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.wp-picker-empty {
+    display: grid;
+    place-items: center;
+    padding: 60px 0;
+    color: rgba(13, 13, 13, 0.4);
+}
+.wp-picker-controls .os-select { width: auto; }
+
+.os-window-toolbar.wp-picker-controls { flex-wrap: nowrap; gap: var(--os-space-row-x); }

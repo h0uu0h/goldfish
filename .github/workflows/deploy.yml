@@ -38,6 +38,8 @@ jobs:
           cp -r static_sites/cpc_dist frontend/dist/cpc
           cp -r static_sites/rockrock_dist frontend/dist/rockrock
 
+      # SPA 深链（/work/:slug、/about）在 GitHub Pages 上的回退
+      - run: cp frontend/dist/index.html frontend/dist/404.html
       - uses: actions/configure-pages@v4
 
       - uses: actions/upload-pages-artifact@v3

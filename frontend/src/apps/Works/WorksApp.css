@@ -1,0 +1,63 @@
+.works-scatter {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background: transparent; /* 窗口即纸面，内容不再自带底色 */
+}
+
+.work-card {
+    position: absolute;
+    width: 200px;
+    cursor: grab;
+}
+
+.work-card:active {
+    cursor: grabbing;
+}
+
+.work-image {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.work-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.work-button-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 10;
+}
+
+.work-line {
+    width: 2px;
+    height: 40px;
+    background: var(--os-ink);
+    transform-origin: bottom;
+    pointer-events: none;
+}
+
+.work-button {
+    height: 60px;
+    width: 60px;
+    background: #fff;
+    border: 2px solid var(--os-ink);
+    border-radius: 9999px;
+    cursor: pointer;
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}

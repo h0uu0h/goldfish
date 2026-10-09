@@ -1,0 +1,61 @@
+@font-face { font-family: 'MiSans'; src: url('/fonts/MiSans-VF.ttf') format('truetype'); font-weight: 100 700; font-style: normal; font-display: swap; }
+/* Legacy author page restored from components/About; viewport units follow the browser window. */
+.about-author {
+    height: 100%;
+    container: author-page / inline-size;
+    background: #000;
+    color: #fff;
+    font-family: 'Afacad', 'MiSans', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 550;
+    line-height: 1.5;
+    user-select: text;
+}
+.about-author .about-container { padding-bottom: 40px; }
+.about-author .about-meta { overflow-wrap: anywhere; }
+.about {
+    width: calc(100% - 50px);
+    flex: 1;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+
+.about-container {
+    flex: 1;
+    padding: 58px 8px 0 8px;
+}
+
+.about-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.about-info h1 {
+    font-size: clamp(36px, 8cqw, 84px);
+    margin: 0;
+}
+.about-m{
+    font-size: clamp(16px, 4cqw, 42px);
+    white-space: pre-line;
+}
+
+.about-meta {
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    white-space: pre-line;
+    text-align: start;
+}
+
+@container author-page (max-width:768px) {
+    .about {
+        margin-left: 0;
+        width: 100%;
+    }
+}

@@ -1,0 +1,4 @@
+import{j as e,M as s,c as a}from"./MagicLink-D2b8z22c.js";const t=()=>e.jsx("div",{className:"about-author os-scroll",children:e.jsx("div",{className:"about",children:e.jsx("div",{className:"about-container",children:e.jsxs("div",{className:"about-info",children:[e.jsx("h1",{children:"侯家祺 "}),e.jsxs("div",{className:"about-meta",children:[e.jsx("div",{className:"about-m",children:"Interactive Design, Graphic Design"}),e.jsx("div",{style:{whiteSpace:"pre-line",fontWeight:"300"},children:`北京邮电大学 2020 级本科生
+北京邮电大学 2024 级硕士在读`}),e.jsx("div",{className:"about-m",children:`PS, AI, AE, PR
+Blender, Unity, C#
+Python, React, JavaScript, HTML, CSS`}),e.jsx("img",{src:"/hjq.JPG",alt:"hjq",style:{width:"clamp(108px, 24cqw, 252px)",maxWidth:"100%",height:"auto"}}),e.jsx(s,{href:"mailto:1978708083@qq.com",children:"1978708083@qq.com"})]})]})})})});a(document.getElementById("root")).render(e.jsx(t,{}));

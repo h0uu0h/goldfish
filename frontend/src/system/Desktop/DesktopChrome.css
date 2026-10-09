@@ -1,0 +1,40 @@
+/* The system bars slide away with the foreground maximized window. */
+.os-shell > .os-menu-bar,
+.os-shell > .os-dock {
+    transition: transform 360ms cubic-bezier(.22, 1, .36, 1);
+}
+.os-shell.is-immersive > .os-menu-bar { transform: translateY(-100%); }
+.os-shell.is-immersive > .os-dock { transform: translate(-50%, calc(100% + 16px)); }
+.os-menu-edge, .os-dock-edge { display: none; }
+.os-shell.is-immersive > .os-menu-edge,
+.os-shell.is-immersive > .os-dock-edge {
+    display: block;
+    position: fixed;
+    height: 3px;
+    z-index: 6001;
+}
+.os-menu-edge { top: 0; left: 0; right: 0; }
+.os-dock-edge { bottom: 0; left: 50%; width: min(640px, 100%); transform: translateX(-50%); }
+.os-shell.is-immersive > .os-menu-edge:hover + .os-menu-bar,
+.os-shell.is-immersive > .os-menu-bar:hover,
+.os-shell.is-immersive > .os-menu-bar:focus-within,
+.os-shell.is-immersive > .os-menu-bar:has(details[open]) { transform: translateY(0); }
+.os-shell.is-immersive > .os-menu-bar {
+    background: rgba(25, 25, 25, .72);
+    backdrop-filter: blur(16px);
+}
+.os-shell.is-immersive > .os-dock-edge:hover + .os-dock,
+.os-shell.is-immersive > .os-dock:hover,
+.os-shell.is-immersive > .os-dock:focus-within { transform: translateX(-50%); }
+/* Bridge the gap between the revealed Dock and the bottom screen edge. */
+.os-shell.is-immersive > .os-dock::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 16px;
+}
+@media (prefers-reduced-motion: reduce) {
+    .os-shell > .os-menu-bar, .os-shell > .os-dock { transition: none; }
+}

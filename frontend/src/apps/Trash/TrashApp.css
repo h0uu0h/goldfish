@@ -1,0 +1,8 @@
+.trash-app { height: 100%; display: flex; flex-direction: column; }
+.trash-empty { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: var(--os-space-panel); text-align: center; }
+.trash-empty img { width: 64px; height: 64px; object-fit: contain; margin-bottom: 16px; }
+.trash-app[data-icon-theme="original"] img { filter: invert(1); }
+.trash-app[data-icon-theme="chicago95"] img { image-rendering: pixelated; }
+.trash-empty h2 { font-size: var(--os-font-size); margin: 0 0 8px; }
+.trash-empty p { color: var(--os-muted); font-size: var(--os-font-sm); margin: 0; }
+.trash-app footer { border-top: 1px solid var(--os-line); padding: 8px 16px; font-size: var(--os-font-sm); color: var(--os-muted); }

@@ -1,0 +1,341 @@
+.os-window {
+    --os-window-inner-radius: max(0px, calc(var(--os-radius) - var(--os-border-width)));
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    /* 纸底承担低频透光不均；Paper Shaders canvas 负责静态纤维。 */
+    background-color: rgba(var(--paper-rgb), var(--paper-alpha));
+    background-image: var(--paper-formation-img);
+    background-position: var(--paper-texture-x) var(--paper-texture-y);
+    background-blend-mode: soft-light;
+    backdrop-filter: blur(var(--paper-blur)) saturate(var(--paper-saturate));
+    -webkit-backdrop-filter: blur(var(--paper-blur)) saturate(var(--paper-saturate));
+    box-shadow: var(--paper-shadow);
+    border: 1px solid var(--paper-edge-color);
+    border-radius: var(--os-radius);
+    isolation: isolate;
+    transition: box-shadow 180ms ease, border-color 180ms ease;
+    animation-duration: var(--paper-open-duration, 650ms);
+    animation-timing-function: cubic-bezier(0.18, 0.72, 0.16, 1);
+    animation-fill-mode: both;
+    /* 拖拽/缩放期间由 JS 直接改样式，不加过渡，保证"干脆" */
+}
+
+/* 斜向漫反射与薄纸切边；只覆盖材质，不影响文字或外侧缩放热区。 */
+.os-window::before,
+.os-window::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--os-window-inner-radius, 0px);
+    pointer-events: none;
+}
+
+.os-window::before {
+    z-index: 0;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent 42%, rgba(74, 61, 43, 0.025));
+}
+
+.os-window::after {
+    z-index: 2;
+    box-shadow: inset 0 1px var(--paper-edge-light), inset 1px 0 rgba(255, 255, 255, 0.12), inset 0 -1px var(--paper-edge-shade);
+}
+
+/*
+ * 拖拽/缩放期间保留完整材质（含 backdrop-filter 透光模糊）。
+ * 实测（Apple Silicon + Chrome，810px 宽窗口正弦拖拽/缩放）保持满帧，
+ * 模糊重采样的开销可以接受；只关掉打开动画避免重播。
+ */
+.os-window.is-dragging,
+.os-window.is-resizing {
+    animation: none;
+    transition: none;
+    contain: layout paint style;
+    backface-visibility: hidden;
+}
+
+.os-window.is-dragging {
+    will-change: transform;
+}
+
+.os-window.is-resizing {
+    will-change: left, top, width, height;
+}
+
+/* 拖拽不改尺寸，把已生成的纹理提升为静态合成层随窗口一起移动。 */
+.os-window.is-dragging .os-paper-shader {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+.os-window.is-dragging .os-window-body,
+.os-window.is-resizing .os-window-body {
+    pointer-events: none;
+}
+
+/* Paper Shaders 静态生成纤维/粗糙度/团皱/折痕，位于纸底之上、内容之下。 */
+.os-paper-shader {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: multiply;
+    border-radius: var(--os-window-inner-radius, 0px);
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* Paper Shaders 默认把 canvas 放在宿主 div 的 -1 层；窗口本身有独立纸底，需提升到宿主层内才可见。 */
+.os-paper-shader > canvas {
+    z-index: 0 !important;
+}
+
+.os-window[hidden] {
+    display: none; /* 最小化；author 样式会覆盖 UA 的 [hidden]，需显式声明 */
+}
+
+.os-window:not(.focused) {
+    border-color: var(--paper-edge-soft);
+    box-shadow: var(--paper-shadow-rest);
+}
+
+.os-window.maximized {
+    --os-window-inner-radius: 0px;
+    border-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.os-window.maximized .os-window-titlebar,
+.os-window.maximized .os-window-body { border-radius: 0; }
+
+.os-window.maximized:not(.focused),
+.os-window.maximized::after { box-shadow: none; }
+
+/* 同一组打开关键帧复制为 a/b，让“重新展开”无需卸载内容也能重播。 */
+.paper-phase-open.paper-cycle-a { animation-name: window-open-a; }
+.paper-phase-open.paper-cycle-b { animation-name: window-open-b; }
+
+/* 收起是独立的正向运动，不把打开动画倒放。 */
+.paper-phase-close { animation-name: window-close; }
+.os-window.maximized.paper-phase-close {
+    animation-duration: var(--paper-open-duration, 650ms);
+    animation-timing-function: cubic-bezier(0.34, 0, 0.72, 0.24);
+    animation-fill-mode: both;
+}
+
+@keyframes window-open-a {
+    from {
+        opacity: 0;
+        transform: scale(0.985);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes window-open-b {
+    from { opacity: 0; transform: scale(0.985); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* 其他轻量浮层仍沿用原来的通用打开动画。 */
+@keyframes window-open {
+    from { opacity: 0; transform: scale(0.985); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes window-close {
+    0% { opacity: 1; transform: none; }
+    100% { opacity: 0; transform: translate(var(--paper-open-x), var(--paper-open-y)) scale(0.94); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .os-window { animation-duration: 1ms !important; transition: none; }
+}
+
+/* ---------- 窗口操作栏：红绿灯与页面操作同一行 ---------- */
+.os-window-titlebar {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 auto;
+    min-height: max(var(--os-titlebar-h), calc(var(--os-control-h) + 2 * var(--os-space-control-y)));
+    display: flex;
+    align-items: center;
+    border-bottom: none;
+    box-shadow: none;
+    background: transparent; /* 让纸的透光穿过标题栏 */
+    border-radius: var(--os-window-inner-radius) var(--os-window-inner-radius) 0 0;
+    cursor: grab;
+    touch-action: none;
+}
+
+.os-window-titlebar:active {
+    cursor: grabbing;
+}
+
+/* The controls stay in one row; narrow windows scroll actions, never the traffic lights. */
+.os-window-toolbar-host { flex: 1; min-width: 0; overflow-x: auto; scrollbar-width: none; margin: 0 var(--os-space-group-x); touch-action: pan-x; }
+.os-window-toolbar-host::-webkit-scrollbar { display: none; }
+.os-window-toolbar { display: flex; align-items: center; gap: var(--os-space-control-x); width: max-content; min-width: 100%; padding: var(--os-space-control-y) 0; box-sizing: border-box; }
+.os-window-toolbar > * { flex-shrink: 0; }
+.os-window-toolbar .os-segmented { width: auto; }
+.os-window-toolbar .os-button, .os-window-toolbar .os-select { white-space: nowrap; }
+.os-window-toolbar .os-select { width: auto; }
+
+.os-window-controls {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--os-space-row-y) var(--os-space-row-x);
+    padding-left: var(--os-space-group-x);
+}
+
+.os-window-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.os-tl-close {
+    background: #ff5f57;
+}
+
+.os-tl-min {
+    background: #febc2e;
+}
+
+.os-tl-max {
+    background: #28c840;
+}
+
+/* 失焦时红绿灯变灰，hover 恢复 */
+.os-window:not(.focused) .os-window-btn {
+    background: rgba(13, 13, 13, 0.18);
+}
+
+.os-window:not(.focused) .os-window-controls:hover .os-tl-close {
+    background: #ff5f57;
+}
+
+.os-window:not(.focused) .os-window-controls:hover .os-tl-min {
+    background: #febc2e;
+}
+
+.os-window:not(.focused) .os-window-controls:hover .os-tl-max {
+    background: #28c840;
+}
+
+/* 符号仅在 hover 整组时显现 */
+.os-window-btn svg {
+    width: 8px;
+    height: 8px;
+    stroke: rgba(0, 0, 0, 0.55);
+    stroke-width: 1.4;
+    fill: none;
+    opacity: 0;
+}
+
+.os-window-controls:hover .os-window-btn svg {
+    opacity: 1;
+}
+
+/* ---------- 内容区 ---------- */
+.os-window-body {
+    flex: 1;
+    min-height: 0;
+    position: relative;
+    z-index: 1;
+    background: transparent; /* 内容画在纸上，不再自带底色 */
+    border-radius: 0 0 var(--os-window-inner-radius) var(--os-window-inner-radius, 0px);
+    overflow: hidden;
+}
+
+/* ---------- 缩放热区 ---------- */
+.os-resize {
+    position: absolute;
+    z-index: 10;
+    touch-action: none;
+}
+
+.os-resize-n,
+.os-resize-s {
+    left: 8px;
+    right: 8px;
+    height: 6px;
+    cursor: ns-resize;
+}
+
+.os-resize-n {
+    top: -3px;
+}
+
+.os-resize-s {
+    bottom: -3px;
+}
+
+.os-resize-e,
+.os-resize-w {
+    top: 8px;
+    bottom: 8px;
+    width: 6px;
+    cursor: ew-resize;
+}
+
+.os-resize-e {
+    right: -3px;
+}
+
+.os-resize-w {
+    left: -3px;
+}
+
+.os-resize-ne,
+.os-resize-nw,
+.os-resize-se,
+.os-resize-sw {
+    width: 12px;
+    height: 12px;
+}
+
+.os-resize-ne {
+    top: -4px;
+    right: -4px;
+    cursor: nesw-resize;
+}
+
+.os-resize-nw {
+    top: -4px;
+    left: -4px;
+    cursor: nwse-resize;
+}
+
+.os-resize-se {
+    bottom: -4px;
+    right: -4px;
+    cursor: nwse-resize;
+}
+
+.os-resize-sw {
+    bottom: -4px;
+    left: -4px;
+    cursor: nesw-resize;
+}
+
+/* Geometry transitions apply only to maximize/restore, never pointer tracking. */
+.os-window.is-maximizing {
+    transition: left 360ms cubic-bezier(.22, 1, .36, 1), top 360ms cubic-bezier(.22, 1, .36, 1),
+        width 360ms cubic-bezier(.22, 1, .36, 1), height 360ms cubic-bezier(.22, 1, .36, 1),
+        border-radius 360ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+    .os-window.is-maximizing { transition: none; }
+}

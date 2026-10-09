@@ -1,0 +1,77 @@
+.os-desktop-icon {
+    width: 88px;
+    padding: 10px 4px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: default;
+    font-family: inherit;
+}
+
+.os-desktop-icon-glyph {
+    --desktop-icon-size: 50px;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+}
+
+.os-desktop-icon-glyph img {
+    width: var(--desktop-icon-size);
+    height: var(--desktop-icon-size);
+    object-fit: contain;
+    filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.55));
+}
+
+.os-desktop-icon-ext {
+    position: absolute;
+    right: -6px;
+    bottom: -2px;
+    color: #fff;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.os-desktop-icon-label {
+    max-width: 100%;
+    padding: 1px 6px;
+    font-size: var(--os-font-sm);
+    line-height: 1.4;
+    color: #fff;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.75);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.os-desktop-icon:hover .os-desktop-icon-glyph {
+    transform: translateY(-1px);
+}
+
+/* 选中：标签使用强调色，图标按自身透明轮廓叠加同色。 */
+.os-desktop-icon.selected .os-desktop-icon-label {
+    background: var(--os-accent);
+    color: var(--os-on-accent);
+    border-radius: var(--os-control-radius);
+    text-shadow: none;
+}
+
+.os-desktop-icon.selected .os-desktop-icon-glyph::after {
+    content: "";
+    position: absolute;
+    width: var(--desktop-icon-size);
+    height: var(--desktop-icon-size);
+    background: var(--os-accent);
+    opacity: 0.4;
+    -webkit-mask: var(--desktop-icon-mask) center / contain no-repeat;
+    mask: var(--desktop-icon-mask) center / contain no-repeat;
+    pointer-events: none;
+}
+
+.os-desktop:not([data-icon-theme="original"]) .os-desktop-icon-glyph { --desktop-icon-size: 48px; }
+.os-desktop:not([data-icon-theme="original"]) .os-desktop-icon-glyph img { filter: drop-shadow(0 2px 2px rgba(0,0,0,.25)); }
+.os-desktop[data-icon-theme="chicago95"] .os-desktop-icon-glyph { --desktop-icon-size: 32px; }
+.os-desktop[data-icon-theme="chicago95"] .os-desktop-icon-glyph img { image-rendering: pixelated; }

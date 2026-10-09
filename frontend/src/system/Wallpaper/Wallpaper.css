@@ -1,0 +1,22 @@
+.os-wallpaper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.os-wallpaper-layer {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    animation: wallpaper-in 0.9s var(--os-ease);
+}
+
+@keyframes wallpaper-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
