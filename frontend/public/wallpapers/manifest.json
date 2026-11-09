@@ -30,164 +30,54 @@
         "query": "curated goldfish"
     },
     {
-        "id": "9160637",
-        "src": "https://images.pexels.com/photos/9160637/pexels-photo-9160637.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/9160637/pexels-photo-9160637.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Jeremy Müller",
-        "photographerUrl": "https://www.pexels.com/@jmueller",
-        "pexelsUrl": "https://www.pexels.com/photo/high-definition-photo-of-north-america-nebula-9160637/",
-        "avgColor": "#36131A",
-        "query": "nebula galaxy"
-    },
-    {
-        "id": "36509425",
-        "src": "https://images.pexels.com/photos/36509425/pexels-photo-36509425.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/36509425/pexels-photo-36509425.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Matt Rivera",
-        "photographerUrl": "https://www.pexels.com/@matt-rivera-2149788934",
-        "pexelsUrl": "https://www.pexels.com/photo/misty-mountain-peaks-with-snowy-slopes-36509425/",
-        "avgColor": "#687774",
-        "query": "mountain landscape fog"
-    },
-    {
-        "id": "8650703",
-        "src": "https://images.pexels.com/photos/8650703/pexels-photo-8650703.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/8650703/pexels-photo-8650703.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Nothing Ahead",
-        "photographerUrl": "https://www.pexels.com/@ian-panelo",
-        "pexelsUrl": "https://www.pexels.com/photo/fish-swimming-in-the-water-8650703/",
-        "avgColor": "#2F1E14",
+        "id": "37431486",
+        "src": "https://images.pexels.com/photos/37431486/pexels-photo-37431486.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/37431486/pexels-photo-37431486.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Stefan Maritz",
+        "photographerUrl": "https://www.pexels.com/@stefan-maritz-1452486",
+        "pexelsUrl": "https://www.pexels.com/photo/vibrant-goldfish-in-a-lush-aquarium-setting-37431486/",
+        "avgColor": "#1E1614",
         "query": "goldfish"
     },
     {
-        "id": "31047029",
-        "src": "https://images.pexels.com/photos/31047029/pexels-photo-31047029.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/31047029/pexels-photo-31047029.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Christian  Alemu",
-        "photographerUrl": "https://www.pexels.com/@christian-alemu-127251395",
-        "pexelsUrl": "https://www.pexels.com/photo/vibrant-yellowtail-damselfish-in-natural-habitat-31047029/",
-        "avgColor": "#3A588C",
-        "query": "coral reef"
-    },
-    {
-        "id": "35815153",
-        "src": "https://images.pexels.com/photos/35815153/pexels-photo-35815153.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/35815153/pexels-photo-35815153.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Adi K",
-        "photographerUrl": "https://www.pexels.com/@adi-k-182036",
-        "pexelsUrl": "https://www.pexels.com/photo/stunning-northern-lights-over-mountain-landscape-35815153/",
-        "avgColor": "#284742",
-        "query": "aurora borealis"
-    },
-    {
-        "id": "29687508",
-        "src": "https://images.pexels.com/photos/29687508/pexels-photo-29687508.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/29687508/pexels-photo-29687508.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Raul Ling",
-        "photographerUrl": "https://www.pexels.com/@raulling",
-        "pexelsUrl": "https://www.pexels.com/photo/stunning-aurora-borealis-in-norway-s-night-sky-29687508/",
-        "avgColor": "#121210",
-        "query": "aurora borealis"
-    },
-    {
-        "id": "35224072",
-        "src": "https://images.pexels.com/photos/35224072/pexels-photo-35224072.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/35224072/pexels-photo-35224072.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Hakan Karagöz",
-        "photographerUrl": "https://www.pexels.com/@hakan-karagoz-804689804",
-        "pexelsUrl": "https://www.pexels.com/photo/misty-mountain-landscape-in-cloudy-weather-35224072/",
-        "avgColor": "#7A7A72",
-        "query": "mountain landscape fog"
-    },
-    {
-        "id": "37269551",
-        "src": "https://images.pexels.com/photos/37269551/pexels-photo-37269551.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/37269551/pexels-photo-37269551.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Marek Pavlík",
-        "photographerUrl": "https://www.pexels.com/@marek-pavlik-1929759405",
-        "pexelsUrl": "https://www.pexels.com/photo/stunning-green-nebula-and-starry-sky-37269551/",
-        "avgColor": "#0F3A29",
-        "query": "nebula galaxy"
-    },
-    {
-        "id": "16526560",
-        "src": "https://images.pexels.com/photos/16526560/pexels-photo-16526560.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/16526560/pexels-photo-16526560.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Lorete M",
-        "photographerUrl": "https://www.pexels.com/@lorete-m-511517246",
-        "pexelsUrl": "https://www.pexels.com/photo/aurora-borealis-at-night-16526560/",
-        "avgColor": "#112830",
-        "query": "aurora borealis"
-    },
-    {
-        "id": "8434624",
-        "src": "https://images.pexels.com/photos/8434624/pexels-photo-8434624.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/8434624/pexels-photo-8434624.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "MART  PRODUCTION",
-        "photographerUrl": "https://www.pexels.com/@mart-production",
-        "pexelsUrl": "https://www.pexels.com/photo/goldfish-in-plastic-bag-8434624/",
-        "avgColor": "#928886",
+        "id": "26245908",
+        "src": "https://images.pexels.com/photos/26245908/pexels-photo-26245908.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/26245908/pexels-photo-26245908.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "安惠 青",
+        "photographerUrl": "https://www.pexels.com/@aqin",
+        "pexelsUrl": "https://www.pexels.com/photo/person-feeding-the-fish-26245908/",
+        "avgColor": "#44332B",
         "query": "goldfish"
     },
     {
-        "id": "37269537",
-        "src": "https://images.pexels.com/photos/37269537/pexels-photo-37269537.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/37269537/pexels-photo-37269537.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Marek Pavlík",
-        "photographerUrl": "https://www.pexels.com/@marek-pavlik-1929759405",
-        "pexelsUrl": "https://www.pexels.com/photo/vivid-celestial-nebula-in-deep-space-37269537/",
-        "avgColor": "#83410F",
-        "query": "nebula galaxy"
-    },
-    {
-        "id": "8970781",
-        "src": "https://images.pexels.com/photos/8970781/pexels-photo-8970781.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/8970781/pexels-photo-8970781.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Jeffry Surianto",
-        "photographerUrl": "https://www.pexels.com/@andromeda99",
-        "pexelsUrl": "https://www.pexels.com/photo/close-up-of-a-fish-8970781/",
-        "avgColor": "#444341",
-        "query": "coral reef"
-    },
-    {
-        "id": "28237726",
-        "src": "https://images.pexels.com/photos/28237726/pexels-photo-28237726.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/28237726/pexels-photo-28237726.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Oliver Schröder",
-        "photographerUrl": "https://www.pexels.com/@olivers",
-        "pexelsUrl": "https://www.pexels.com/photo/nordlichter-28237726/",
-        "avgColor": "#0B2232",
-        "query": "aurora borealis"
-    },
-    {
-        "id": "37269540",
-        "src": "https://images.pexels.com/photos/37269540/pexels-photo-37269540.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/37269540/pexels-photo-37269540.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Marek Pavlík",
-        "photographerUrl": "https://www.pexels.com/@marek-pavlik-1929759405",
-        "pexelsUrl": "https://www.pexels.com/photo/colorful-nebula-and-starry-sky-37269540/",
-        "avgColor": "#284030",
-        "query": "nebula galaxy"
-    },
-    {
-        "id": "8970786",
-        "src": "https://images.pexels.com/photos/8970786/pexels-photo-8970786.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/8970786/pexels-photo-8970786.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Jeffry Surianto",
-        "photographerUrl": "https://www.pexels.com/@andromeda99",
-        "pexelsUrl": "https://www.pexels.com/photo/blue-fishes-in-aquarium-8970786/",
-        "avgColor": "#5B5E63",
-        "query": "coral reef"
-    },
-    {
-        "id": "30186406",
-        "src": "https://images.pexels.com/photos/30186406/pexels-photo-30186406.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/30186406/pexels-photo-30186406.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Alina Chernii",
-        "photographerUrl": "https://www.pexels.com/@alina-chernii-682289345",
-        "pexelsUrl": "https://www.pexels.com/photo/majestic-snow-capped-mountains-in-cloudy-mist-30186406/",
-        "avgColor": "#A8ACAF",
+        "id": "12077121",
+        "src": "https://images.pexels.com/photos/12077121/pexels-photo-12077121.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/12077121/pexels-photo-12077121.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Evgeny Kochurov",
+        "photographerUrl": "https://www.pexels.com/@jonnyjpg",
+        "pexelsUrl": "https://www.pexels.com/photo/green-trees-on-mountain-covered-with-fog-12077121/",
+        "avgColor": "#6E8686",
         "query": "mountain landscape fog"
+    },
+    {
+        "id": "2166926",
+        "src": "https://images.pexels.com/photos/2166926/pexels-photo-2166926.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/2166926/pexels-photo-2166926.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Scott Webb",
+        "photographerUrl": "https://www.pexels.com/@scottwebb",
+        "pexelsUrl": "https://www.pexels.com/photo/white-jellyfish-i-2166926/",
+        "avgColor": "#2435E8",
+        "query": "jellyfish"
+    },
+    {
+        "id": "40303216",
+        "src": "https://images.pexels.com/photos/40303216/pexels-photo-40303216.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/40303216/pexels-photo-40303216.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "A rvin",
+        "photographerUrl": "https://www.pexels.com/@a-rvin-416970448",
+        "pexelsUrl": "https://www.pexels.com/photo/mesmerizing-jellyfish-floating-in-ocean-depths-40303216/",
+        "avgColor": "#171C16",
+        "query": "jellyfish"
     },
     {
         "id": "7973885",
@@ -197,6 +87,116 @@
         "photographerUrl": "https://www.pexels.com/@samson-bush-1387215",
         "pexelsUrl": "https://www.pexels.com/photo/photo-of-a-yellow-and-silver-fish-swimming-near-coral-reefs-7973885/",
         "avgColor": "#1D738C",
+        "query": "coral reef"
+    },
+    {
+        "id": "13010769",
+        "src": "https://images.pexels.com/photos/13010769/pexels-photo-13010769.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/13010769/pexels-photo-13010769.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Saad Alaiyadhi",
+        "photographerUrl": "https://www.pexels.com/@saad-alaiyadhi-131639221",
+        "pexelsUrl": "https://www.pexels.com/photo/underwater-view-of-coral-reef-and-flock-of-little-fish-13010769/",
+        "avgColor": "#375A60",
+        "query": "underwater ocean"
+    },
+    {
+        "id": "33494984",
+        "src": "https://images.pexels.com/photos/33494984/pexels-photo-33494984.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/33494984/pexels-photo-33494984.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "adestix .",
+        "photographerUrl": "https://www.pexels.com/@adestix-2147887426",
+        "pexelsUrl": "https://www.pexels.com/photo/close-up-view-of-a-graceful-jellyfish-in-dark-water-33494984/",
+        "avgColor": "#292E31",
+        "query": "jellyfish"
+    },
+    {
+        "id": "18903467",
+        "src": "https://images.pexels.com/photos/18903467/pexels-photo-18903467.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/18903467/pexels-photo-18903467.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Benjamin Young",
+        "photographerUrl": "https://www.pexels.com/@benjamin-young-771717428",
+        "pexelsUrl": "https://www.pexels.com/photo/underwater-photo-of-corals-and-fish-18903467/",
+        "avgColor": "#5A8F7B",
+        "query": "coral reef"
+    },
+    {
+        "id": "15591206",
+        "src": "https://images.pexels.com/photos/15591206/pexels-photo-15591206.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/15591206/pexels-photo-15591206.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Emiliano Arano",
+        "photographerUrl": "https://www.pexels.com/@earano",
+        "pexelsUrl": "https://www.pexels.com/photo/going-underwater-at-night-15591206/",
+        "avgColor": "#03203E",
+        "query": "underwater ocean"
+    },
+    {
+        "id": "33969655",
+        "src": "https://images.pexels.com/photos/33969655/pexels-photo-33969655.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/33969655/pexels-photo-33969655.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Khánh LP",
+        "photographerUrl": "https://www.pexels.com/@khanh-lp-2155653315",
+        "pexelsUrl": "https://www.pexels.com/photo/woman-interacting-with-goldfish-in-aquarium-33969655/",
+        "avgColor": "#767348",
+        "query": "goldfish"
+    },
+    {
+        "id": "8887755",
+        "src": "https://images.pexels.com/photos/8887755/pexels-photo-8887755.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/8887755/pexels-photo-8887755.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Jeffry Surianto",
+        "photographerUrl": "https://www.pexels.com/@andromeda99",
+        "pexelsUrl": "https://www.pexels.com/photo/exotic-fish-swimming-underwater-near-corals-8887755/",
+        "avgColor": "#3F4752",
+        "query": "coral reef"
+    },
+    {
+        "id": "19571554",
+        "src": "https://images.pexels.com/photos/19571554/pexels-photo-19571554.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/19571554/pexels-photo-19571554.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Ayyeee Ayyeee",
+        "photographerUrl": "https://www.pexels.com/@ayyeee-ayyeee-434363205",
+        "pexelsUrl": "https://www.pexels.com/photo/close-up-of-jellyfish-19571554/",
+        "avgColor": "#2D2A25",
+        "query": "jellyfish"
+    },
+    {
+        "id": "7107193",
+        "src": "https://images.pexels.com/photos/7107193/pexels-photo-7107193.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/7107193/pexels-photo-7107193.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Neil Ryan Famoso Saraña",
+        "photographerUrl": "https://www.pexels.com/@neiltakingstills",
+        "pexelsUrl": "https://www.pexels.com/photo/plastic-bags-containing-goldfish-7107193/",
+        "avgColor": "#8D7A77",
+        "query": "goldfish"
+    },
+    {
+        "id": "38757770",
+        "src": "https://images.pexels.com/photos/38757770/pexels-photo-38757770.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/38757770/pexels-photo-38757770.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Zaur Takhgiriev",
+        "photographerUrl": "https://www.pexels.com/@zkadoshi",
+        "pexelsUrl": "https://www.pexels.com/photo/misty-mountain-landscape-in-chechnya-38757770/",
+        "avgColor": "#4D524C",
+        "query": "mountain landscape fog"
+    },
+    {
+        "id": "10498914",
+        "src": "https://images.pexels.com/photos/10498914/pexels-photo-10498914.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/10498914/pexels-photo-10498914.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Daniel Torobekov",
+        "photographerUrl": "https://www.pexels.com/@alohaphotostudio",
+        "pexelsUrl": "https://www.pexels.com/photo/rocks-under-water-10498914/",
+        "avgColor": "#353849",
+        "query": "underwater ocean"
+    },
+    {
+        "id": "8970781",
+        "src": "https://images.pexels.com/photos/8970781/pexels-photo-8970781.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/8970781/pexels-photo-8970781.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Jeffry Surianto",
+        "photographerUrl": "https://www.pexels.com/@andromeda99",
+        "pexelsUrl": "https://www.pexels.com/photo/close-up-of-a-fish-8970781/",
+        "avgColor": "#444341",
         "query": "coral reef"
     }
 ]
