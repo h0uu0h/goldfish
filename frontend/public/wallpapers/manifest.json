@@ -30,154 +30,74 @@
         "query": "curated goldfish"
     },
     {
-        "id": "37269531",
-        "src": "https://images.pexels.com/photos/37269531/pexels-photo-37269531.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/37269531/pexels-photo-37269531.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Marek Pavlík",
-        "photographerUrl": "https://www.pexels.com/@marek-pavlik-1929759405",
-        "pexelsUrl": "https://www.pexels.com/photo/vivid-aurora-borealis-with-starry-night-sky-37269531/",
-        "avgColor": "#08376F",
-        "query": "nebula galaxy"
+        "id": "39902815",
+        "src": "https://images.pexels.com/photos/39902815/pexels-photo-39902815.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/39902815/pexels-photo-39902815.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Zaur Takhgiriev",
+        "photographerUrl": "https://www.pexels.com/@zkadoshi",
+        "pexelsUrl": "https://www.pexels.com/photo/mystical-mountainous-landscape-in-chechnya-39902815/",
+        "avgColor": "#767676",
+        "query": "mountain landscape fog"
     },
     {
-        "id": "33969652",
-        "src": "https://images.pexels.com/photos/33969652/pexels-photo-33969652.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/33969652/pexels-photo-33969652.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Khánh LP",
-        "photographerUrl": "https://www.pexels.com/@khanh-lp-2155653315",
-        "pexelsUrl": "https://www.pexels.com/photo/joyful-interaction-with-goldfish-at-aquarium-33969652/",
-        "avgColor": "#64673C",
-        "query": "goldfish"
+        "id": "26616685",
+        "src": "https://images.pexels.com/photos/26616685/pexels-photo-26616685.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/26616685/pexels-photo-26616685.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Alejandro Herrera",
+        "photographerUrl": "https://www.pexels.com/@yobealexx",
+        "pexelsUrl": "https://www.pexels.com/photo/cloud-over-mountains-26616685/",
+        "avgColor": "#808A82",
+        "query": "mountain landscape fog"
     },
     {
-        "id": "28641608",
-        "src": "https://images.pexels.com/photos/28641608/pexels-photo-28641608.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/28641608/pexels-photo-28641608.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Sergio Zhukov",
-        "photographerUrl": "https://www.pexels.com/@triemli",
-        "pexelsUrl": "https://www.pexels.com/photo/foggy-forested-hills-in-morning-light-28641608/",
-        "avgColor": "#9A9EA1",
+        "id": "11738628",
+        "src": "https://images.pexels.com/photos/11738628/pexels-photo-11738628.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/11738628/pexels-photo-11738628.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Erhan Dayı",
+        "photographerUrl": "https://www.pexels.com/@moments",
+        "pexelsUrl": "https://www.pexels.com/photo/stars-on-night-sky-11738628/",
+        "avgColor": "#57656E",
+        "query": "milky way night sky"
+    },
+    {
+        "id": "40102042",
+        "src": "https://images.pexels.com/photos/40102042/pexels-photo-40102042.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/40102042/pexels-photo-40102042.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "江门 江",
+        "photographerUrl": "https://www.pexels.com/@2164336935",
+        "pexelsUrl": "https://www.pexels.com/photo/close-up-of-translucent-jellyfish-in-blue-waters-40102042/",
+        "avgColor": "#3474BB",
+        "query": "jellyfish"
+    },
+    {
+        "id": "31612225",
+        "src": "https://images.pexels.com/photos/31612225/pexels-photo-31612225.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/31612225/pexels-photo-31612225.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "eberhard grossgasteiger",
+        "photographerUrl": "https://www.pexels.com/@eberhardgross",
+        "pexelsUrl": "https://www.pexels.com/photo/misty-forest-canopy-with-dense-fog-in-morning-31612225/",
+        "avgColor": "#4B514F",
         "query": "forest mist"
     },
     {
-        "id": "31739295",
-        "src": "https://images.pexels.com/photos/31739295/pexels-photo-31739295.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/31739295/pexels-photo-31739295.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Felix Kiss",
-        "photographerUrl": "https://www.pexels.com/@felix-kiss-568824727",
-        "pexelsUrl": "https://www.pexels.com/photo/vibrant-northern-lights-over-stottwang-night-sky-31739295/",
-        "avgColor": "#6C4766",
-        "query": "aurora borealis"
+        "id": "30902862",
+        "src": "https://images.pexels.com/photos/30902862/pexels-photo-30902862.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/30902862/pexels-photo-30902862.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "天玑 不器",
+        "photographerUrl": "https://www.pexels.com/@2149489342",
+        "pexelsUrl": "https://www.pexels.com/photo/vibrant-ocean-waves-from-above-30902862/",
+        "avgColor": "#2F4982",
+        "query": "ocean waves aerial"
     },
     {
-        "id": "24604211",
-        "src": "https://images.pexels.com/photos/24604211/pexels-photo-24604211.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/24604211/pexels-photo-24604211.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Adi K",
-        "photographerUrl": "https://www.pexels.com/@adi-k-182036",
-        "pexelsUrl": "https://www.pexels.com/photo/aurora-borealis-over-city-and-sea-24604211/",
-        "avgColor": "#094B6D",
-        "query": "aurora borealis"
-    },
-    {
-        "id": "8601965",
-        "src": "https://images.pexels.com/photos/8601965/pexels-photo-8601965.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/8601965/pexels-photo-8601965.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Виктор Куликов",
-        "photographerUrl": "https://www.pexels.com/@76505838",
-        "pexelsUrl": "https://www.pexels.com/photo/aurora-borealis-8601965/",
-        "avgColor": "#3C6344",
-        "query": "aurora borealis"
-    },
-    {
-        "id": "2538107",
-        "src": "https://images.pexels.com/photos/2538107/pexels-photo-2538107.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/2538107/pexels-photo-2538107.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Adrien Olichon",
-        "photographerUrl": "https://www.pexels.com/@adrien-olichon-1257089",
-        "pexelsUrl": "https://www.pexels.com/photo/galaxy-wallpaper-2538107/",
-        "avgColor": "#02080A",
-        "query": "nebula galaxy"
-    },
-    {
-        "id": "18733131",
-        "src": "https://images.pexels.com/photos/18733131/pexels-photo-18733131.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/18733131/pexels-photo-18733131.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Costa Karabelas",
-        "photographerUrl": "https://www.pexels.com/@costa",
-        "pexelsUrl": "https://www.pexels.com/photo/close-up-of-koi-in-a-pond-18733131/",
-        "avgColor": "#745237",
-        "query": "koi fish pond"
-    },
-    {
-        "id": "34169628",
-        "src": "https://images.pexels.com/photos/34169628/pexels-photo-34169628.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/34169628/pexels-photo-34169628.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Raul Ling",
-        "photographerUrl": "https://www.pexels.com/@raulling",
-        "pexelsUrl": "https://www.pexels.com/photo/misty-forest-mountainscape-with-dense-fog-34169628/",
-        "avgColor": "#424345",
-        "query": "forest mist"
-    },
-    {
-        "id": "15738076",
-        "src": "https://images.pexels.com/photos/15738076/pexels-photo-15738076.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/15738076/pexels-photo-15738076.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "limoo",
-        "photographerUrl": "https://www.pexels.com/@limoo-3859717",
-        "pexelsUrl": "https://www.pexels.com/photo/comet-fish-swimming-15738076/",
-        "avgColor": "#1C130C",
-        "query": "goldfish"
-    },
-    {
-        "id": "37269545",
-        "src": "https://images.pexels.com/photos/37269545/pexels-photo-37269545.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/37269545/pexels-photo-37269545.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Marek Pavlík",
-        "photographerUrl": "https://www.pexels.com/@marek-pavlik-1929759405",
-        "pexelsUrl": "https://www.pexels.com/photo/vibrant-cosmic-nebula-with-starfield-in-space-37269545/",
-        "avgColor": "#613614",
-        "query": "nebula galaxy"
-    },
-    {
-        "id": "9160637",
-        "src": "https://images.pexels.com/photos/9160637/pexels-photo-9160637.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/9160637/pexels-photo-9160637.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Jeremy Müller",
-        "photographerUrl": "https://www.pexels.com/@jmueller",
-        "pexelsUrl": "https://www.pexels.com/photo/high-definition-photo-of-north-america-nebula-9160637/",
-        "avgColor": "#36131A",
-        "query": "nebula galaxy"
-    },
-    {
-        "id": "7254919",
-        "src": "https://images.pexels.com/photos/7254919/pexels-photo-7254919.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/7254919/pexels-photo-7254919.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "dio arapogiannis",
-        "photographerUrl": "https://www.pexels.com/@dio-arapogiannis-40036220",
-        "pexelsUrl": "https://www.pexels.com/photo/a-white-and-red-speckled-fish-in-close-up-photography-7254919/",
-        "avgColor": "#56655A",
-        "query": "goldfish"
-    },
-    {
-        "id": "30717712",
-        "src": "https://images.pexels.com/photos/30717712/pexels-photo-30717712.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/30717712/pexels-photo-30717712.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Ramon Karolan",
-        "photographerUrl": "https://www.pexels.com/@ramonkaphotography",
-        "pexelsUrl": "https://www.pexels.com/photo/serene-goldfish-swimming-in-a-tranquil-pond-30717712/",
-        "avgColor": "#645649",
-        "query": "goldfish"
-    },
-    {
-        "id": "31144246",
-        "src": "https://images.pexels.com/photos/31144246/pexels-photo-31144246.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/31144246/pexels-photo-31144246.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "@coldbeer",
-        "photographerUrl": "https://www.pexels.com/@coldbeer-277046249",
-        "pexelsUrl": "https://www.pexels.com/photo/colorful-koi-fish-swimming-in-serene-pond-31144246/",
-        "avgColor": "#5C5246",
-        "query": "koi fish pond"
+        "id": "9202683",
+        "src": "https://images.pexels.com/photos/9202683/pexels-photo-9202683.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/9202683/pexels-photo-9202683.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Alexios Katsarakis",
+        "photographerUrl": "https://www.pexels.com/@alexios-katsarakis-89383844",
+        "pexelsUrl": "https://www.pexels.com/photo/milky-way-in-night-sky-9202683/",
+        "avgColor": "#252531",
+        "query": "milky way night sky"
     },
     {
         "id": "15773557",
@@ -190,13 +110,93 @@
         "query": "forest mist"
     },
     {
-        "id": "18134120",
-        "src": "https://images.pexels.com/photos/18134120/pexels-photo-18134120.jpeg?auto=compress&cs=tinysrgb&w=2400",
-        "thumb": "https://images.pexels.com/photos/18134120/pexels-photo-18134120.jpeg?auto=compress&cs=tinysrgb&w=480",
-        "photographer": "Felix Kiss",
-        "photographerUrl": "https://www.pexels.com/@felix-kiss-568824727",
-        "pexelsUrl": "https://www.pexels.com/photo/fog-over-evergreen-forest-on-hill-18134120/",
-        "avgColor": "#7A7E7D",
+        "id": "39360611",
+        "src": "https://images.pexels.com/photos/39360611/pexels-photo-39360611.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/39360611/pexels-photo-39360611.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Luca Cavallin",
+        "photographerUrl": "https://www.pexels.com/@luca-cavallin-2163876900",
+        "pexelsUrl": "https://www.pexels.com/photo/misty-mountain-peaks-surrounded-by-clouds-39360611/",
+        "avgColor": "#6F8694",
+        "query": "mountain landscape fog"
+    },
+    {
+        "id": "16837600",
+        "src": "https://images.pexels.com/photos/16837600/pexels-photo-16837600.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/16837600/pexels-photo-16837600.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Justyna Serafin",
+        "photographerUrl": "https://www.pexels.com/@justyna-serafin-127253298",
+        "pexelsUrl": "https://www.pexels.com/photo/wave-on-sea-shore-16837600/",
+        "avgColor": "#53989D",
+        "query": "ocean waves aerial"
+    },
+    {
+        "id": "31021507",
+        "src": "https://images.pexels.com/photos/31021507/pexels-photo-31021507.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/31021507/pexels-photo-31021507.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Aarin Husain",
+        "photographerUrl": "https://www.pexels.com/@aarin",
+        "pexelsUrl": "https://www.pexels.com/photo/starry-night-in-jaisalmer-s-desert-sky-31021507/",
+        "avgColor": "#2D3738",
+        "query": "milky way night sky"
+    },
+    {
+        "id": "7575426",
+        "src": "https://images.pexels.com/photos/7575426/pexels-photo-7575426.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/7575426/pexels-photo-7575426.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Dylan R",
+        "photographerUrl": "https://www.pexels.com/@dylan-r-43047000",
+        "pexelsUrl": "https://www.pexels.com/photo/close-up-shot-of-a-jellyfish-7575426/",
+        "avgColor": "#1F2857",
+        "query": "jellyfish"
+    },
+    {
+        "id": "28436771",
+        "src": "https://images.pexels.com/photos/28436771/pexels-photo-28436771.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/28436771/pexels-photo-28436771.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Zaur Takhgiriev",
+        "photographerUrl": "https://www.pexels.com/@zkadoshi",
+        "pexelsUrl": "https://www.pexels.com/photo/misty-mountain-landscape-with-lush-greenery-28436771/",
+        "avgColor": "#8C9292",
+        "query": "mountain landscape fog"
+    },
+    {
+        "id": "18776917",
+        "src": "https://images.pexels.com/photos/18776917/pexels-photo-18776917.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/18776917/pexels-photo-18776917.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Gaurav Singh",
+        "photographerUrl": "https://www.pexels.com/@gaurav-singh-3081362",
+        "pexelsUrl": "https://www.pexels.com/photo/milky-way-on-night-sky-18776917/",
+        "avgColor": "#5A4451",
+        "query": "milky way night sky"
+    },
+    {
+        "id": "8343099",
+        "src": "https://images.pexels.com/photos/8343099/pexels-photo-8343099.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/8343099/pexels-photo-8343099.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Samer Daboul",
+        "photographerUrl": "https://www.pexels.com/@samerdaboul",
+        "pexelsUrl": "https://www.pexels.com/photo/fog-over-the-forest-8343099/",
+        "avgColor": "#515D5D",
         "query": "forest mist"
+    },
+    {
+        "id": "9984778",
+        "src": "https://images.pexels.com/photos/9984778/pexels-photo-9984778.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/9984778/pexels-photo-9984778.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Beepin4",
+        "photographerUrl": "https://www.pexels.com/@beepin4-87267358",
+        "pexelsUrl": "https://www.pexels.com/photo/trees-in-the-forest-9984778/",
+        "avgColor": "#373C35",
+        "query": "forest mist"
+    },
+    {
+        "id": "2860703",
+        "src": "https://images.pexels.com/photos/2860703/pexels-photo-2860703.jpeg?auto=compress&cs=tinysrgb&w=2400",
+        "thumb": "https://images.pexels.com/photos/2860703/pexels-photo-2860703.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "photographer": "Aaron Ulsh",
+        "photographerUrl": "https://www.pexels.com/@aulsh99",
+        "pexelsUrl": "https://www.pexels.com/photo/aerial-view-of-sea-waves-2860703/",
+        "avgColor": "#5985B5",
+        "query": "ocean waves aerial"
     }
 ]
